@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Ornali — Dar asas à decoração</title>
+<meta name="description" content="Ornali é uma marca de decoração de eventos e personalizados. Cada celebração é pensada com cuidado, delicadeza e atenção aos detalhes." />
+
+<!-- ============================================================
+     COMO EDITAR:
+     - Número do WhatsApp: procure por SEU_NUMERO_WHATSAPP (aparece
+       várias vezes no arquivo) e troque pelo número real, no
+       formato internacional sem espaços. Ex: 5511999999999
+     - Link do Instagram: procure por SEU_INSTAGRAM
+     - E-mail: procure por seuemail@ornali.com
+     - Textos: edite diretamente entre as tags de cada seção
+     - Cores: edite o arquivo style.css, bloco :root no topo
+     - Logo: arquivos em /assets (logo-full.png e logo-mark.png)
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVEGAÇÃO
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="envolucro nav__conteudo">
+    <a href="#topo" class="nav__marca" aria-label="Ornali — início">
+      <img src="assets/logo-mark.png" alt="Ornali" />
+    </a>
+
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="#apresentacao">A Ornali</a>
+      <a href="#celebrar">Celebrações</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#Eventos">Eventos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="nav__acoes">
+      <!-- EDITAR: número do WhatsApp -->
+      <a
+        class="botao botao--contorno-azul nav__whats"
+        href="https://wa.me/message/RMQCDFG523XHO1"   
+        target="_blank"
+        rel="noopener"
+      >
+        Falar com a Ornali
+      </a>
+      <button class="nav__alterna" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-movel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <line x1="3" y1="7" x2="21" y2="7"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="17" x2="21" y2="17"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menu mobile em tela cheia -->
+<nav class="menu-movel" id="menu-movel" aria-label="Menu mobile">
+  <a href="#apresentacao">A Ornali</a>
+  <a href="#celebrar">Celebrações</a>
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#contato">Contato</a>
+  <a
+    class="botao botao--dourado"
+    href="https://wa.me/message/RMQCDFG523XHO1"
+    target="_blank"
+    rel="noopener"
+  >
+    Falar pelo WhatsApp
+  </a>
+</nav>
+
+<main>
+
+  <!-- ============================================================
+       1. HERO
+       ============================================================ -->
+  <section class="hero" id="topo">
+    <div class="envolucro hero__campo">
+      <img class="hero__logo" src="assets/logo-full.png" alt="Ornali — Dar asas à decoração" />
+      <h1 class="hero__titulo">Dar asas à decoração.</h1>
+      <p class="hero__sub">Celebramos momentos únicos através de uma decoração feita para ser sua.</p>
+      <div class="hero__acoes">
+        <!-- EDITAR: número do WhatsApp -->
+        <a
+          class="botao botao--azul"
+          href="https://wa.me/message/RMQCDFG523XHO1"
+          target="_blank"
+          rel="noopener"
+        >
+          Falar com a Ornali
+        </a>
+      </div>
+
+      <div class="hero__rolar" aria-hidden="true">
+        <span>Role</span>
+        <div class="hero__rolar-linha"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. APRESENTAÇÃO
+       ============================================================ -->
+  <section class="secao secao--clara" id="apresentacao">
+    <div class="envolucro apresentacao__grade">
+      <h2 class="apresentacao__titulo revelar">Cada celebração tem uma história.</h2>
+      <div class="apresentacao__texto">
+        <p class="revelar">
+        Ornali, união de “ornare” — decorar — e “Ali” — asas, em italiano — nasceu para dar asas à decoração. Transformando celebrações em experiências que carregam beleza, significado e personalidade. 
+        </p>
+        <p class="revelar">
+          Acreditamos que decorar vai muito além de escolher cores e elementos: é entender quem está celebrando, o que aquele momento representa, e transformar tudo isso em uma composição que tenha a sua essência, que conte a sua história.
+        </p>
+        <p class="revelar">
+          Por isso, cada projeto é pensado com cuidado, delicadeza e atenção aos detalhes — do primeiro rascunho ao último arranjo colocado em seu lugar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. O QUE CELEBRAMOS
+       ============================================================ -->
+  <section class="secao secao--bege" id="celebrar">
+    <div class="envolucro">
+      <div class="celebra__cabecalho revelar">
+        <p class="rotulo secao__eyebrow">Celebrações</p>
+        <h2 class="secao__titulo" style="margin:0 auto;">O que você quer celebrar?</h2>
+      </div>
+
+      <div class="celebra__grade revelar">
+        <div class="categoria" tabindex="0" data-categoria="aniversarios">
+          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18c0-3 4-4 10-4s10 1 10 4v6c0 2-2 3-10 3s-10-1-10-3v-6z"/><path d="M6 18c0 2 4 3 10 3s10-1 10-3"/><path d="M16 14v-4"/><path d="M16 6c-1.4 0-2-1-2-2s.9-2 2-2 2 1 2 2-.6 2-2 2z"/></svg>
+          <span>Aniversários</span>
+        </div>
+        <div class="categoria" tabindex="0" data-categoria="chas">
+          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6c2 2 2 5 0 7-2-2-2-5 0-7z"/><path d="M16 6c-2 2-2 5 0 7"/><path d="M16 13c3-1 6 1 6 4-3 1-6-1-6-4z"/><path d="M16 13c-3-1-6 1-6 4 3 1 6-1 6-4z"/><circle cx="16" cy="22" r="1.3" fill="currentColor" stroke="none"/><path d="M16 17v13"/></svg>
+          <span>Chás e celebrações</span>
+        </div>
+        <div class="categoria" tabindex="0" data-categoria="cha-de-bebe">
+          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M11 13h10l-1 13a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2l-1-13z"/><path d="M13 13v-2a3 3 0 0 1 6 0v2"/><path d="M12 18h8"/></svg>
+          <span>Chá de bebê e revelação</span>
+        </div>
+        <div class="categoria" tabindex="0" data-categoria="noivados">
+          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="20" r="5"/><circle cx="20" cy="20" r="5"/><path d="M14 9l2 4 2-4"/></svg>
+          <span>Noivados e Casamentos intimistas</span>
+        </div>
+        <div class="categoria" tabindex="0" data-categoria="intimistas">
+          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l12-5 12 5-12 5-12-5z"/><path d="M9 15.5V21c0 1.5 3 3 7 3s7-1.5 7-3v-5.5"/><path d="M28 13v7"/></svg>
+          <span>Celebrações intimistas</span>
+        </div>
+        <div class="categoria" tabindex="0" data-categoria="familiares">
+          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 26s-8-5.2-8-11.4C8 10.8 10.6 8 14 8c1.6 0 3 .8 4 2 1-1.2 2.4-2 4-2 3.4 0 6 2.8 6 6.6C24 20.8 16 26 16 26z" transform="scale(0.85) translate(2.5,3)"/></svg>
+          <span>Celebrações familiares</span>
+        </div>
+        <div class="categoria" tabindex="0" data-categoria="infantis">
+          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="12" rx="7" ry="8.5"/><path d="M16 20.5V27"/><path d="M13 27h6"/></svg>
+          <span>Festas infantis</span>
+        </div>
+        <div class="categoria" tabindex="0" data-categoria="personalizados">
+          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8c-3-3-9-2-9 3 0 4 5 6 9 10 4-4 9-6 9-10 0-5-6-6-9-3z"/><path d="M16 8v13"/></svg>
+          <span>Eventos Personalizados</span>
+        </div>
+      </div>
+
+      <p class="celebra__rodape revelar">
+        Tem outra ocasião em mente? Conte para a gente!
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. NOSSO JEITO DE CRIAR
+       ============================================================ -->
+  <section class="secao secao--azul">
+    <div class="envolucro">
+      <div class="jeito__topo revelar">
+        <p class="rotulo secao__eyebrow">Nosso jeito de criar</p>
+        <h2 class="secao__titulo" style="color:var(--bege)">Feito para ser seu.</h2>
+        <p>
+          Cada celebração começa com uma ideia, um sentimento ou uma história. A partir disso, criamos uma decoração que conversa com você e com o momento que deseja viver.
+        </p>
+      </div>
+
+      <div class="jeito__grade revelar">
+        <div class="jeito__item">
+          <span class="jeito__numero">Personalidade</span>
+          <h3>Uma decoração com a sua essência</h3>
+          <p>Nada de fórmulas prontas — cada composição nasce de quem está celebrando.</p>
+        </div>
+        <div class="jeito__item">
+          <span class="jeito__numero">Cuidado</span>
+          <h3>Cada detalhe pensado com intenção</h3>
+          <p>Da paleta de cores ao último arranjo, tudo é definido com propósito.</p>
+        </div>
+        <div class="jeito__item">
+          <span class="jeito__numero">Exclusividade</span>
+          <h3>Projetos criados para cada celebração</h3>
+          <p>Um projeto novo para cada história — nunca uma repetição do anterior.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. COMO FUNCIONA
+       ============================================================ -->
+  <section class="secao secao--clara" id="como-funciona">
+    <div class="envolucro">
+      <div class="celebra__cabecalho revelar">
+        <p class="rotulo secao__eyebrow">Como funciona</p>
+        <h2 class="secao__titulo" style="margin:0 auto;">Do primeiro contato à celebração</h2>
+      </div>
+
+      <div class="etapas revelar">
+        <div class="etapa">
+          <div class="etapa__linha">
+            <span class="etapa__numero">01</span>
+          </div>
+          <div class="etapa__corpo">
+            <h3>Conversamos</h3>
+            <p>Você conta para a gente o que deseja celebrar.</p>
+          </div>
+        </div>
+        <div class="etapa">
+          <div class="etapa__linha">
+            <span class="etapa__numero">02</span>
+          </div>
+          <div class="etapa__corpo">
+            <h3>Criamos</h3>
+            <p>Pensamos na proposta, nos detalhes e na atmosfera da celebração.</p>
+          </div>
+        </div>
+        <div class="etapa">
+          <div class="etapa__linha">
+            <span class="etapa__numero">03</span>
+          </div>
+          <div class="etapa__corpo">
+            <h3>Planejamos</h3>
+            <p>Organizamos tudo para que cada elemento esteja em harmonia.</p>
+          </div>
+        </div>
+        <div class="etapa">
+          <div class="etapa__linha">
+            <span class="etapa__numero">04</span>
+          </div>
+          <div class="etapa__corpo">
+            <h3>Celebramos</h3>
+            <p>Você aproveita o momento. Nós cuidamos da beleza.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       6. NOSSOS EVENTOS (carrossel de projetos)
+       ------------------------------------------------------------
+       NÃO EDITE a estrutura abaixo — os cards de cada projeto são
+       criados automaticamente pelo script.js a partir de uma lista.
+
+       PARA ADICIONAR, TROCAR OU REMOVER FOTOS DE PROJETOS:
+       abra o script.js, procure por "PARA ADICIONAR FOTOS DE
+       PROJETOS" e edite a lista "projetos" — é só titulo + caminho
+       do arquivo da foto. O carrossel se ajusta sozinho para
+       qualquer quantidade de projetos.
+       ============================================================ -->
+  <section class="secao secao--clara projetos" id="Eventos">
+    <div class="envolucro">
+      <div class="celebra__cabecalho revelar">
+        <p class="rotulo secao__eyebrow">Nossos eventos</p>
+        <h2 class="secao__titulo" style="margin:0 auto;">Onde cada detalhe encontra seu lugar</h2>
+      </div>
+
+      <!-- "Janela" = o que aparece na tela (esconde o resto da esteira).
+           "Pista" = a esteira comprida com todos os cards lado a lado,
+           que o script.js desliza automaticamente para a esquerda. -->
+      <div class="projetos__janela revelar" id="projetos-janela">
+        <div class="projetos__pista" id="projetos-pista">
+          <!-- Cards inseridos aqui pelo script.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. DIFERENCIAL
+       ============================================================ -->
+  <section class="secao secao--bege">
+    <div class="envolucro diferencial__grade">
+      <div class="diferencial__texto revelar">
+        <p class="rotulo secao__eyebrow">Diferencial</p>
+        <h2 class="secao__titulo">Não é apenas decoração.</h2>
+        <p>É sobre criar uma atmosfera que faça sentido para quem está celebrando.</p>
+      </div>
+
+      <ul class="diferencial__lista revelar">
+        <li>Personalização</li>
+        <li>Delicadeza</li>
+        <li>Atenção aos detalhes</li>
+        <li>Harmonia estética</li>
+        <li>Atendimento próximo</li>
+        <li>Projetos pensados para cada ocasião</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. CHAMADA PARA ORÇAMENTO
+       ============================================================ -->
+  <section class="secao secao--azul cta" id="contato">
+    <div class="envolucro">
+      <h2 class="cta__titulo">Vamos dar asas à sua celebração?</h2>
+      <p class="cta__sub">Conte para a Ornali o que você deseja celebrar e vamos imaginar esse momento juntos.</p>
+      <div class="cta__acoes">
+        <!-- EDITAR: número do WhatsApp -->
+        <a
+          class="botao botao--dourado"
+          href="https://wa.me/message/RMQCDFG523XHO1"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 20.2 12 8.2 8.2 0 0 1 12 20.2z"/></svg>
+          Conversar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. INSTAGRAM
+       ============================================================ -->
+  <section class="secao secao--clara instagram">
+    <div class="envolucro">
+      <svg class="instagram__marca" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M6 20c0-6 5-11 11-14-1 6-2 9-6 12-3 2.3-5 2-5 2z"/>
+        <path d="M15 8c1 1.5 1.5 3.5 0 6-1.5-2.5-1-4.5 0-6z"/>
+        <path d="M17 12c2-.6 4 .3 4.5 2.2-2 .6-4-.2-4.5-2.2z"/>
+        <path d="M17 12c-2-.6-4 .3-4.5 2.2 2 .6 4-.2 4.5-2.2z"/>
+      </svg>
+      <h2>Continue acompanhando a Ornali.</h2>
+      <p>Novas ideias, inspirações e celebrações por aqui.</p>
+      <!-- EDITAR: link do Instagram -->
+      <a class="botao botao--contorno-azul" href="https://instagram.com/ornali.eventos" target="_blank" rel="noopener">
+        @ornali
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     RODAPÉ
+     ============================================================ -->
+<footer class="rodape">
+  <div class="envolucro">
+    <div class="rodape__topo">
+      <span class="rodape__marca">Ornali</span>
+      <span class="rodape__slogan rotulo">Dar asas à decoração</span>
+    </div>
+
+    <ul class="rodape__links">
+      <li>
+        <!-- EDITAR: link do Instagram -->
+        <a href="https://instagram.com/ornali.eventos" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+      </li>
+      <li>
+        <!-- EDITAR: número do WhatsApp -->
+        <a href="https://wa.me/message/RMQCDFG523XHO1" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 20.2 12 8.2 8.2 0 0 1 12 20.2z"/></svg>
+          WhatsApp
+        </a>
+      </li>
+      <li>
+        <!-- EDITAR: e-mail -->
+        <a href="https://instagram.com/ornali.eventos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          E-mail
+        </a>
+      </li>
+    </ul>
+
+    <div class="rodape__base">
+      © 2026 Ornali. Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     BOTÃO FLUTUANTE DO WHATSAPP (mobile e desktop)
+     ============================================================ -->
+<!-- EDITAR: número do WhatsApp -->
+<a
+  class="whats-flutuante"
+  id="whats-flutuante"
+  href="https://wa.me/message/RMQCDFG523XHO1" 
+  target="_blank"
+  rel="noopener"
+  aria-label="Falar com a Ornali pelo WhatsApp"
+>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 20.2 12 8.2 8.2 0 0 1 12 20.2z"/></svg>
+</a>
+
+<!-- ============================================================
+     CARD FLUTUANTE — CELEBRAÇÕES (modal de galeria)
+     Não edite a estrutura abaixo: o conteúdo (título, texto e
+     fotos) é preenchido pelo script.js a partir do objeto
+     "dadosCelebracoes". Para trocar textos/fotos, edite o
+     script.js — procure por "dadosCelebracoes".
+     ============================================================ -->
+<div class="modal-celebracao" id="modal-celebracao" aria-hidden="true">
+  <div class="modal-celebracao__fundo" data-fechar-modal></div>
+
+  <div class="modal-celebracao__caixa" role="dialog" aria-modal="true" aria-labelledby="modal-celebracao-titulo">
+    <button class="modal-celebracao__fechar" id="modal-fechar" aria-label="Fechar" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <div class="modal-celebracao__painel">
+      <div class="modal-celebracao__icone" id="modal-celebracao-icone" aria-hidden="true"></div>
+
+      <p class="rotulo modal-celebracao__rotulo">Celebrações</p>
+      <h3 class="modal-celebracao__titulo" id="modal-celebracao-titulo"></h3>
+      <span class="modal-celebracao__linha" aria-hidden="true"></span>
+      <p class="modal-celebracao__texto" id="modal-celebracao-texto"></p>
+
+      <div class="modal-celebracao__rodape">
+        <span class="modal-celebracao__contador" id="modal-celebracao-contador">1 / 1</span>
+        <div class="modal-celebracao__mini-setas">
+          <button id="modal-mini-esq" aria-label="Foto anterior" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button id="modal-mini-dir" aria-label="Próxima foto" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-celebracao__imagem" id="modal-celebracao-area-imagem">
+      <div class="modal-celebracao__marca-agua" id="modal-celebracao-marca-agua" aria-hidden="true"></div>
+      <img class="modal-celebracao__foto" id="modal-celebracao-foto-a" src="" alt="" />
+      <img class="modal-celebracao__foto" id="modal-celebracao-foto-b" src="" alt="" />
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

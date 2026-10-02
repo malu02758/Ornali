@@ -1,0 +1,1558 @@
+/* ==========================================================================
+   ORNALI — Folha de estilo
+   Marca: decoração de eventos e personalizados
+   ------------------------------------------------------------------------
+   COMO EDITAR AS CORES:
+   Todas as cores da marca estão centralizadas em :root, logo abaixo.
+   Troque o valor de uma variável (ex: --azul) e ela muda em TUDO que usa
+   var(--azul) no site inteiro — não precisa procurar cor por cor.
+
+   ------------------------------------------------------------------------
+   ÍNDICE DESTE ARQUIVO (procure pelo título entre "====" para pular direto):
+   1.  :root                    → cores, fontes, variáveis globais
+   2.  Reset básico             → normaliza comportamento do navegador
+   3.  Filete ornamental        → linha fina + ponto dourado (motivo da marca)
+   4.  Navegação                → menu do topo + menu mobile
+   5.  Botões                   → estilos reutilizáveis (.botao--azul, etc.)
+   6.  Seções — estrutura geral → espaçamento e cores de fundo das seções
+   7.  Hero                     → primeira dobra da página
+   8.  Apresentação             → texto "Cada celebração tem uma história"
+   9.  O que celebramos         → grade de categorias com hover de foto
+   10. Nosso jeito de criar     → painel azul com 3 colunas
+   11. Como funciona            → linha do tempo com números
+   12. Diferencial              → lista com marcadores dourados
+   13. CTA orçamento            → chamada final para contato
+   14. Instagram / Rodapé       → parte de baixo da página
+   15. Botão flutuante WhatsApp → bolha fixa no canto da tela
+   16. Utilidades de revelação  → animação de "aparecer" ao rolar
+   17. Modal de celebrações     → card que abre ao clicar numa categoria
+
+   ------------------------------------------------------------------------
+   MAPA DE Z-INDEX (camadas de empilhamento, da mais baixa pra mais alta):
+   Sempre que um elemento "sumir atrás" de outro, o problema é quase
+   sempre aqui: dois elementos com z-index igual (ou sem z-index) numa
+   mesma área empilhada. A regra é: quem deve ficar por CIMA precisa ter
+   um z-index MAIOR que o de baixo dele.
+
+     0   → .categoria::before        (foto de fundo que aparece no hover)
+     1   → .categoria::after         (véu escuro por cima da foto)
+     1   → .modal-celebracao__caixa  (o card branco do modal)
+     1   → .modal-celebracao__foto   (foto "de baixo", ainda não trocou)
+     2   → .categoria svg/span       (ícone e texto, sempre visíveis)
+     2   → .modal-celebracao__foto.ativa (foto "de cima", a que está sendo mostrada)
+     10  → .modal-celebracao__fechar (o botão "X" — sempre acima das fotos)
+     90  → .whats-flutuante          (bolha do WhatsApp fixa na tela)
+     99  → .menu-movel               (menu mobile em tela cheia)
+     100 → .nav                      (barra de navegação do topo)
+     200 → .modal-celebracao         (o modal inteiro, por cima de tudo)
+
+   Se for adicionar algo novo que precisa ficar "por cima", dê um
+   z-index maior que o do que ele precisa cobrir (ex: 11, 15, 300...).
+   Não precisa ser em sequência — só precisa ser MAIOR que o de baixo.
+   ========================================================================== */
+
+:root {
+  /* ---- Paleta oficial da marca (ALTERE AQUI para mudar as cores em todo o site) ---- */
+  --azul: #39447b;          /* Azul profundo — cor principal */
+  --azul-escuro: #2b3260;   /* Variação mais escura, para fundos e hover */
+  --azul-suave: #5b6596;    /* Azul suavizado, para textos secundários sobre fundo escuro */
+  --bege: #f5f1e7;          /* Bege / off-white — áreas de descanso */
+  --bege-claro: #fbfaf6;    /* Bege quase branco, para alternância sutil de seções */
+  --dourado: #c8ae82;       /* Dourado — apenas em detalhes */
+  --dourado-escuro: #8a6c42;/* Dourado mais escuro, para texto sobre bege (contraste acessível) */
+  --branco: #ffffff;
+
+  /* ---- Tipografia ---- */
+  --fonte-display: "Fraunces", "Iowan Old Style", serif;
+  --fonte-corpo: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ---- Escala e ritmo ---- */
+  --max-largura: 1120px;
+  --largura-leitura: 62ch;
+  --raio: 2px;
+  --duracao: 420ms;
+  --facilitador: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---- Reset básico ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bege);
+  color: var(--azul);
+  font-family: var(--fonte-corpo);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fonte-display);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.envolucro {
+  width: 100%;
+  max-width: var(--max-largura);
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.rotulo {
+  font-family: var(--fonte-corpo);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.foco-visivel:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--dourado-escuro);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Filete ornamental (motivo da marca — linha fina + ponto dourado)
+   ========================================================================== */
+
+.filete {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.filete::before,
+.filete::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.filete__ponto {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--dourado);
+  flex-shrink: 0;
+}
+
+.filete--curta {
+  max-width: 120px;
+  margin: 0 auto;
+}
+
+.filete--esquerda {
+  max-width: 90px;
+  margin: 0;
+}
+.filete--esquerda::after {
+  display: none;
+}
+
+/* ==========================================================================
+   Navegação
+   ========================================================================== */
+
+.nav {
+  position: fixed; /* gruda no topo mesmo rolando a página */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* fica acima do conteúdo normal e do menu mobile (99) */
+  padding: 18px 0;
+  transition: background var(--duracao) var(--facilitador),
+    box-shadow var(--duracao) var(--facilitador),
+    padding var(--duracao) var(--facilitador);
+}
+
+.nav.nav--rolada {
+  background: rgba(245, 241, 231, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(57, 68, 123, 0.1);
+  padding: 10px 0;
+}
+
+.nav__conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav__marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav__marca img {
+  height: 40px;
+  width: auto;
+  transition: height var(--duracao) var(--facilitador);
+}
+
+.nav.nav--rolada .nav__marca img {
+  height: 32px;
+}
+
+.nav__links {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  .nav__links a {
+    font-size: 0.92rem;
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav__links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--dourado-escuro);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--duracao) var(--facilitador);
+  }
+  .nav__links a:hover::after,
+  .nav__links a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.nav__acoes {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav__whats {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .nav__whats {
+    display: inline-flex;
+  }
+}
+
+.nav__alterna {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid rgba(57, 68, 123, 0.25);
+  border-radius: 50%;
+  color: var(--azul);
+}
+
+@media (min-width: 860px) {
+  .nav__alterna {
+    display: none;
+  }
+}
+
+.nav__alterna svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Menu mobile: tela cheia que cobre tudo quando aberto.
+   z-index 99 fica logo abaixo da .nav (100), pra a barra do topo
+   continuar visível por cima do menu se precisar. */
+.menu-movel {
+  position: fixed;
+  inset: 0; /* atalho para top/right/bottom/left: 0 → cobre a tela toda */
+  z-index: 99;
+  background: var(--azul);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--duracao) var(--facilitador),
+    visibility var(--duracao), transform var(--duracao) var(--facilitador);
+}
+
+.menu-movel.aberto {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu-movel a {
+  font-family: var(--fonte-display);
+  font-size: 1.7rem;
+  color: var(--bege);
+}
+
+.menu-movel .botao {
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 34px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: background var(--duracao) var(--facilitador),
+    color var(--duracao) var(--facilitador),
+    border-color var(--duracao) var(--facilitador),
+    transform var(--duracao) var(--facilitador);
+}
+
+.botao:active {
+  transform: scale(0.98);
+}
+
+.botao--contorno-azul {
+  border-color: var(--azul);
+  color: var(--azul);
+  background: transparent;
+}
+.botao--contorno-azul:hover {
+  background: var(--azul);
+  color: var(--bege);
+}
+
+.botao--azul {
+  background: var(--azul);
+  color: var(--bege);
+}
+.botao--azul:hover {
+  background: var(--azul-escuro);
+}
+
+.botao--contorno-claro {
+  border-color: rgba(245, 241, 231, 0.55);
+  color: var(--bege);
+  background: transparent;
+}
+.botao--contorno-claro:hover {
+  background: var(--bege);
+  color: var(--azul);
+  border-color: var(--bege);
+}
+
+.botao--dourado {
+  background: var(--dourado);
+  color: var(--azul-escuro);
+}
+.botao--dourado:hover {
+  background: var(--bege);
+}
+
+.botao svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Seções — estrutura geral
+   ========================================================================== */
+
+section {
+  position: relative;
+}
+
+.secao {
+  padding: 96px 0;
+}
+
+@media (min-width: 860px) {
+  .secao {
+    padding: 140px 0;
+  }
+}
+
+.secao--clara {
+  background: var(--bege-claro);
+}
+
+.secao--bege {
+  background: var(--bege);
+}
+
+.secao--azul {
+  background: var(--azul);
+  color: var(--bege);
+}
+
+.secao__eyebrow {
+  color: var(--dourado-escuro);
+  margin-bottom: 18px;
+}
+
+.secao--azul .secao__eyebrow {
+  color: var(--dourado);
+}
+
+.secao__titulo {
+  font-size: 2.1rem;
+  max-width: 16ch;
+}
+
+@media (min-width: 640px) {
+  .secao__titulo {
+    font-size: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 0 80px;
+  background: var(--bege);
+  overflow: hidden;
+}
+
+.hero__campo {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__logo {
+  width: 190px;
+  max-width: 62vw;
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: subir-suave 1100ms var(--facilitador) 120ms forwards;
+}
+
+@media (min-width: 640px) {
+  .hero__logo {
+    width: 230px;
+  }
+}
+
+.hero__titulo {
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--azul);
+  margin-top: 22px;
+  opacity: 0;
+  animation: subir-suave 1100ms var(--facilitador) 320ms forwards;
+}
+
+@media (min-width: 640px) {
+  .hero__titulo {
+    font-size: 3.6rem;
+  }
+}
+
+.hero__sub {
+  margin-top: 20px;
+  max-width: 34ch;
+  font-size: 1.05rem;
+  color: var(--azul-suave);
+  opacity: 0;
+  animation: subir-suave 1100ms var(--facilitador) 480ms forwards;
+}
+
+.hero__acoes {
+  margin-top: 40px;
+  opacity: 0;
+  animation: subir-suave 1100ms var(--facilitador) 620ms forwards;
+}
+
+.hero__rolar {
+  position: absolute;
+  bottom: -64px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--azul-suave);
+  opacity: 0;
+  animation: aparecer 900ms var(--facilitador) 1000ms forwards;
+}
+
+.hero__rolar span {
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hero__rolar-linha {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(var(--dourado-escuro), transparent);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__rolar-linha::after {
+  content: "";
+  position: absolute;
+  top: -34px;
+  left: 0;
+  width: 100%;
+  height: 34px;
+  background: linear-gradient(var(--azul), transparent);
+  animation: gotejar 2.2s ease-in-out infinite;
+}
+
+@keyframes subir-suave {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes gotejar {
+  0% {
+    top: -34px;
+  }
+  60%,
+  100% {
+    top: 34px;
+  }
+}
+
+/* ==========================================================================
+   Apresentação
+   ========================================================================== */
+
+.apresentacao__grade {
+  display: grid;
+  gap: 36px;
+}
+
+@media (min-width: 860px) {
+  .apresentacao__grade {
+    grid-template-columns: 0.85fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+}
+
+.apresentacao__titulo {
+  font-size: 2.1rem;
+  position: sticky;
+  top: 120px;
+}
+
+@media (min-width: 640px) {
+  .apresentacao__titulo {
+    font-size: 2.6rem;
+  }
+}
+
+.apresentacao__texto p {
+  max-width: var(--largura-leitura);
+  color: var(--azul-escuro);
+  text-align: justify;
+}
+
+.apresentacao__texto p + p {
+  margin-top: 20px;
+  text-align: justify;
+
+}
+
+/* ==========================================================================
+   O que celebramos
+   ========================================================================== */
+
+.celebra__cabecalho {
+  text-align: center;
+  max-width: 42ch;
+  margin: 0 auto 56px;
+}
+
+.celebra__grade {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .celebra__grade {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+}
+
+@media (min-width: 960px) {
+  .celebra__grade {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+}
+
+.categoria {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(57, 68, 123, 0.22);
+  padding: 26px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  background: var(--bege-claro);
+  transition: border-color var(--duracao) var(--facilitador),
+    transform var(--duracao) var(--facilitador),
+    background var(--duracao) var(--facilitador);
+}
+
+/* Camada da foto de capa (1ª imagem da categoria), escondida até o hover.
+   A imagem em si vem do JS: script.js define --capa via
+   card.style.setProperty("--capa", 'url(...)') com a 1ª foto da categoria. */
+.categoria::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* base: fica atrás do véu (1) e do ícone/texto (2) */
+  background-image: var(--capa);
+  background-size: cover;
+  background-position: center;
+  opacity: 0; /* invisível até o :hover mais abaixo */
+  transform: scale(1.06);
+  transition: opacity var(--duracao) var(--facilitador),
+    transform 600ms var(--facilitador);
+}
+
+/* Véu translúcido por cima da foto, para o ícone e o nome continuarem legíveis */
+.categoria::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* acima da foto (0), abaixo do ícone/texto (2) */
+  background: rgba(43, 50, 96, 0.62);
+  opacity: 0;
+  transition: opacity var(--duracao) var(--facilitador);
+}
+
+/* isolation:isolate no .categoria (acima) garante que esse z-index só
+   compete com os ::before/::after do PRÓPRIO card, sem interferir nos
+   outros cards da grade. */
+.categoria svg,
+.categoria span {
+  position: relative; /* position precisa existir para z-index funcionar */
+  z-index: 2; /* topo da pilha: sempre visível por cima da foto e do véu */
+}
+
+.categoria:hover,
+.categoria:focus-visible {
+  border-color: var(--dourado);
+  transform: translateY(-4px);
+}
+
+.categoria:hover::before,
+.categoria:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.categoria:hover::after,
+.categoria:focus-visible::after {
+  opacity: 1;
+}
+
+.categoria svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--azul);
+  transition: stroke var(--duracao) var(--facilitador);
+}
+
+.categoria:hover svg,
+.categoria:focus-visible svg {
+  stroke: var(--bege);
+}
+
+.categoria span {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  transition: color var(--duracao) var(--facilitador);
+}
+
+.categoria:hover span,
+.categoria:focus-visible span {
+  color: var(--bege);
+}
+
+.celebra__rodape {
+  margin-top: 56px;
+  text-align: center;
+  font-family: var(--fonte-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--azul-escuro);
+  max-width: 38ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Nosso jeito de criar (painel azul)
+   ========================================================================== */
+
+.jeito__topo {
+  max-width: 48ch;
+  margin-bottom: 64px;
+}
+
+.jeito__topo p {
+  margin-top: 18px;
+  color: rgba(245, 241, 231, 0.8);
+  font-size: 1.05rem;
+}
+
+.jeito__grade {
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 760px) {
+  .jeito__grade {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.jeito__item {
+  padding: 30px 0;
+  border-top: 1px solid rgba(245, 241, 231, 0.2);
+}
+
+@media (min-width: 760px) {
+  .jeito__item {
+    padding: 6px 40px;
+    border-top: none;
+    border-left: 1px solid rgba(245, 241, 231, 0.2);
+  }
+  .jeito__item:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+.jeito__numero {
+  display: block;
+  font-family: var(--fonte-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--dourado);
+  margin-bottom: 14px;
+}
+
+.jeito__item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.jeito__item p {
+  color: rgba(245, 241, 231, 0.78);
+  font-size: 0.98rem;
+  max-width: 30ch;
+}
+
+/* ==========================================================================
+   Como funciona
+   ========================================================================== */
+
+.etapas {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.etapa {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 22px;
+  position: relative;
+  padding-bottom: 48px;
+}
+
+.etapa:last-child {
+  padding-bottom: 0;
+}
+
+.etapa__linha {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.etapa__linha::before {
+  content: "";
+  position: absolute;
+  top: 44px;
+  bottom: -48px;
+  width: 1px;
+  background: rgba(57, 68, 123, 0.22);
+}
+
+.etapa:last-child .etapa__linha::before {
+  display: none;
+}
+
+.etapa__numero {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--dourado);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  background: var(--bege-claro);
+  position: relative;
+  z-index: 1;
+}
+
+.etapa__corpo {
+  padding-top: 6px;
+}
+
+.etapa__corpo h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.etapa__corpo p {
+  color: var(--azul-escuro);
+  max-width: 40ch;
+}
+
+/* ==========================================================================
+   Diferencial
+   ========================================================================== */
+
+.diferencial__grade {
+  display: grid;
+  gap: 48px;
+}
+
+@media (min-width: 860px) {
+  .diferencial__grade {
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: center;
+  }
+}
+
+.diferencial__texto p {
+  margin-top: 16px;
+  max-width: var(--largura-leitura);
+  color: var(--azul-escuro);
+  font-size: 1.05rem;
+}
+
+.diferencial__lista {
+  display: flex;
+  flex-direction: column;
+}
+
+.diferencial__lista li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(57, 68, 123, 0.15);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-family: var(--fonte-display);
+  font-size: 1.1rem;
+}
+
+.diferencial__lista li:first-child {
+  padding-top: 0;
+}
+
+.diferencial__lista li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--dourado);
+  flex-shrink: 0;
+  transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   CTA orçamento (painel azul de destaque)
+   ========================================================================== */
+
+.cta {
+  text-align: center;
+}
+
+.cta__titulo {
+  font-size: 2.3rem;
+  font-style: italic;
+  font-weight: 400;
+  max-width: 18ch;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .cta__titulo {
+    font-size: 3.2rem;
+  }
+}
+
+.cta__sub {
+  margin: 22px auto 0;
+  max-width: 42ch;
+  color: rgba(245, 241, 231, 0.82);
+  font-size: 1.05rem;
+}
+
+.cta__acoes {
+  margin-top: 44px;
+}
+
+/* ==========================================================================
+   Instagram
+   ========================================================================== */
+
+.instagram {
+  text-align: center;
+}
+
+.instagram__marca {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 26px;
+  color: var(--dourado-escuro);
+}
+
+.instagram h2 {
+  font-size: 1.7rem;
+}
+
+.instagram p {
+  margin-top: 12px;
+  color: var(--azul-suave);
+  color: var(--azul-escuro);
+  opacity: 0.75;
+}
+
+.instagram .botao {
+  margin-top: 30px;
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+
+.rodape {
+  background: var(--azul);
+  color: var(--bege);
+  padding: 72px 0 30px;
+}
+
+.rodape__topo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.rodape__marca {
+  font-family: var(--fonte-display);
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--bege);
+}
+
+.rodape__slogan {
+  color: var(--dourado);
+  font-size: 0.72rem;
+}
+
+.rodape__links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.rodape__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.92rem;
+  color: rgba(245, 241, 231, 0.85);
+  transition: color var(--duracao) var(--facilitador);
+}
+
+.rodape__links a:hover {
+  color: var(--dourado);
+}
+
+.rodape__links svg {
+  width: 17px;
+  height: 17px;
+}
+
+.rodape__base {
+  border-top: 1px solid rgba(245, 241, 231, 0.15);
+  padding-top: 26px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(245, 241, 231, 0.55);
+}
+
+/* ==========================================================================
+   Botão flutuante do WhatsApp
+   ========================================================================== */
+
+.whats-flutuante {
+  position: fixed; /* fica sempre visível na tela, mesmo rolando a página */
+  right: 20px;
+  bottom: 20px;
+  z-index: 90; /* abaixo do menu (99) e da nav (100), acima do conteúdo comum */
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--azul);
+  color: var(--bege);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(43, 50, 96, 0.35);
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
+  pointer-events: none;
+  transition: opacity var(--duracao) var(--facilitador),
+    transform var(--duracao) var(--facilitador), background 200ms;
+}
+
+.whats-flutuante.visivel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.whats-flutuante:hover {
+  background: var(--azul-escuro);
+}
+
+.whats-flutuante svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ==========================================================================
+   Utilidades de revelação ao rolar
+   ========================================================================== */
+
+.revelar {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 900ms var(--facilitador), transform 900ms var(--facilitador);
+}
+
+.revelar.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   NOSSOS EVENTOS — Carrossel de projetos (fotos)
+   --------------------------------------------------------------------------
+   Estrutura: uma "janela" com overflow escondido, e dentro dela uma
+   "pista" comprida (display:flex) com todos os cards lado a lado.
+   O script.js desliza a pista para a esquerda (transform: translateX)
+   em loop automático — ver comentário completo em script.js.
+
+   QUANTOS CARDS FICAM VISÍVEIS DE CADA VEZ:
+   controlado pelo "flex-basis" de .projetos__item nas media queries
+   abaixo. Hoje: 4 no desktop, 3 em telas médias, 2 em tablets,
+   1 no celular. Para mudar quantos aparecem, troque o valor de
+   flex-basis (ex: 25% = 4 cards, 20% = 5 cards, 33.333% = 3 cards).
+   ========================================================================== */
+
+.projetos__janela {
+  overflow: hidden; /* esconde tudo da pista que está fora da "janela" visível */
+  width: 100%;
+}
+
+.projetos__pista {
+  display: flex;
+  will-change: transform; /* avisa o navegador que essa propriedade vai animar bastante */
+}
+
+.projetos__item {
+  flex: 0 0 25%; /* 25% = 4 cards visíveis por vez (100% / 4) */
+  box-sizing: border-box;
+  padding: 0 10px; /* espaço entre os cards (em vez de "gap", pra facilitar o cálculo do JS) */
+}
+
+/* Telas médias (tablets): reduz para 3 cards visíveis, ficam maiores */
+@media (max-width: 960px) {
+  .projetos__item {
+    flex-basis: 33.3333%;
+  }
+}
+
+/* Tablets pequenos / celular na horizontal: 2 cards visíveis */
+@media (max-width: 720px) {
+  .projetos__item {
+    flex-basis: 50%;
+  }
+}
+
+/* Celular: 1 card por vez, ocupando a largura toda */
+@media (max-width: 480px) {
+  .projetos__item {
+    flex-basis: 100%;
+  }
+}
+
+.projetos__cartao {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4; /* mantém todos os cards com a mesma proporção (retrato) */
+  background: var(--bege-claro);
+  box-shadow: 0 12px 30px rgba(43, 50, 96, 0.12);
+}
+
+.projetos__cartao img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* preenche o card sem distorcer a foto */
+  display: block;
+}
+
+/* Legenda com o nome do projeto, sobre um degradê escuro no rodapé da foto */
+.projetos__legenda {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 34px 16px 14px;
+  background: linear-gradient(to top, rgba(20, 22, 46, 0.75), transparent);
+  color: var(--bege);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+
+
+/* ==========================================================================
+   CARD FLUTUANTE — CELEBRAÇÕES (modal de galeria)
+   Abre ao clicar em um item de ".categoria". Ver script.js.
+   ========================================================================== */
+
+/* Container do modal inteiro (fundo escurecido + caixa branca).
+   z-index: 200 é o mais alto do site de propósito: o modal precisa
+   cobrir literalmente tudo (nav, menu mobile, botão do WhatsApp...). */
+.modal-celebracao {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--duracao) var(--facilitador),
+    visibility 0s linear var(--duracao);
+}
+
+.modal-celebracao.aberto {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity var(--duracao) var(--facilitador);
+}
+
+.modal-celebracao__fundo {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 33, 58, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal-celebracao__caixa {
+  position: relative;
+  z-index: 1;
+  width: 60vw;
+  height: 60vh;
+  min-width: 600px;
+  min-height: 440px;
+  max-width: 1200px;
+  background: var(--bege-claro);
+  border-radius: 22px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  grid-template-rows: 1fr;
+  gap: 12px;
+  box-shadow: 0 30px 70px rgba(20, 22, 46, 0.35);
+  transform: translateY(18px) scale(0.97);
+  opacity: 0;
+  transition: transform var(--duracao) var(--facilitador),
+    opacity var(--duracao) var(--facilitador);
+}
+
+.modal-celebracao.aberto .modal-celebracao__caixa {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .modal-celebracao__caixa {
+    width: 92vw;
+    height: 78vh;
+    min-width: 0;
+    min-height: 0;
+    max-height: 88vh;
+    grid-template-columns: 1fr;
+    /* Painel azul = 40% da altura do card, imagem = 60% */
+    grid-template-rows: 2fr 3fr;
+    overflow: hidden;
+  }
+
+  .modal-celebracao__painel {
+    padding: 22px 20px;
+    overflow-y: auto;
+  }
+
+  .modal-celebracao__icone {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 14px;
+  }
+
+  .modal-celebracao__icone svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .modal-celebracao__titulo {
+    font-size: 1.5rem;
+  }
+
+  .modal-celebracao__texto {
+    font-size: 0.88rem;
+  }
+
+  .modal-celebracao__linha {
+    margin: 12px 0;
+  }
+}
+
+.modal-celebracao__painel {
+  background: var(--azul-escuro);
+  color: var(--bege);
+  border-radius: 16px;
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-celebracao__icone {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(245, 241, 231, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.modal-celebracao__icone svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--bege);
+  fill: none;
+}
+
+.modal-celebracao__rotulo {
+  color: var(--dourado);
+  margin-bottom: 10px;
+}
+
+.modal-celebracao__titulo {
+  font-family: var(--fonte-display);
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.modal-celebracao__linha {
+  width: 34px;
+  height: 1px;
+  background: rgba(245, 241, 231, 0.4);
+  margin: 20px 0;
+}
+
+.modal-celebracao__texto {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(245, 241, 231, 0.82);
+  margin: 0;
+  flex: 1;
+}
+
+.modal-celebracao__rodape {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: rgba(245, 241, 231, 0.7);
+}
+
+.modal-celebracao__mini-setas {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-celebracao__mini-setas button {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 241, 231, 0.35);
+  background: transparent;
+  color: var(--bege);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--duracao) var(--facilitador),
+    border-color var(--duracao) var(--facilitador);
+}
+
+.modal-celebracao__mini-setas button:hover {
+  background: rgba(245, 241, 231, 0.15);
+  border-color: var(--dourado);
+}
+
+.modal-celebracao__mini-setas svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Área da foto dentro do modal (lado direito do card).
+   Fica "position: relative" porque o X, a marca d'água e as duas fotos
+   (foto-a / foto-b) lá dentro usam "position: absolute" e se posicionam
+   em relação a ESTA caixa, não em relação à página inteira. */
+.modal-celebracao__imagem {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden; /* corta qualquer foto/zoom que passe da borda arredondada */
+  min-height: 260px;
+  background:
+    linear-gradient(135deg, rgba(91, 101, 150, 0.35), rgba(43, 50, 96, 0.55)),
+    var(--bege-claro);
+  touch-action: pan-y; /* permite deslizar o dedo na horizontal para trocar de foto */
+}
+
+/* Estado "sem imagem": fundo translúcido com o ícone da categoria como marca d'água */
+.modal-celebracao__marca-agua {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: opacity var(--duracao) var(--facilitador);
+  /* sem z-index definido → fica no "chão" da pilha (equivale a 0),
+     sempre atrás das fotos e do botão de fechar */
+}
+
+.modal-celebracao__marca-agua svg {
+  width: 42%;
+  max-width: 220px;
+  stroke: rgba(245, 241, 231, 0.45);
+  fill: none;
+}
+
+/* ---- Sistema de crossfade das fotos (usado pelo script.js) ----
+   Existem DUAS tags <img> sobrepostas (foto-a e foto-b, ver index.html).
+   Isso é o clássico truque de "crossfade": enquanto uma foto está visível
+   (classe .ativa), a próxima já vai sendo carregada na outra <img> por
+   baixo; quando termina de carregar, o JS adiciona .ativa nela e tira da
+   anterior, criando a transição suave sem "piscar" tela branca.
+   Por isso as duas <img> ficam exatamente uma em cima da outra
+   (position:absolute + inset:0) e se diferenciam só pelo z-index. */
+.modal-celebracao__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* preenche a área sem distorcer, cortando o excesso */
+  display: block;
+  opacity: 0; /* foto "de baixo" (esperando a vez ou saindo de cena) */
+  transform: scale(1.035); /* leve zoom-out ao aparecer, dá sensação de suavidade */
+  transition: opacity 520ms var(--facilitador), transform 700ms var(--facilitador);
+  z-index: 1; /* estado inativo */
+}
+
+.modal-celebracao__foto.ativa {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2; /* foto visível no momento, sempre por cima da outra <img> */
+}
+
+/* Quando existe foto real, a marca d'água some */
+.modal-celebracao__imagem.tem-foto .modal-celebracao__marca-agua {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Botão "X" de fechar o modal.
+   IMPORTANTE: como as fotos acima chegam a z-index 2, o X precisa de um
+   valor MAIOR que isso para nunca ficar escondido atrás delas — por isso
+   z-index: 10 (bem acima do que precisa cobrir, com folga para o futuro).
+   Se um dia adicionar algo novo aqui dentro do modal e ele "sumir atrás"
+   do X ou das fotos, o ajuste é sempre este: aumentar o z-index de quem
+   deve ficar na frente. Veja o mapa de z-index no topo do arquivo. */
+.modal-celebracao__fechar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--duracao) var(--facilitador);
+}
+
+.modal-celebracao__fechar:hover {
+  background: var(--branco);
+}
+
+.modal-celebracao__fechar svg {
+  width: 16px;
+  height: 16px;
+}
+
+body.modal-aberto {
+  overflow: hidden;
+}

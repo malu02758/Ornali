@@ -1,465 +1,507 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Ornali — Dar asas à decoração</title>
-<meta name="description" content="Ornali é uma marca de decoração de eventos e personalizados. Cada celebração é pensada com cuidado, delicadeza e atenção aos detalhes." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ornali Eventos — Decoração de eventos personalizados</title>
+<meta name="description" content="Ornali Eventos: decoração personalizada para chás de bebê, chás revelação, noivados e casamentos intimistas, aniversários, chás de panela e eventos especiais.">
+<link rel="icon" href="assets/img/logo-ornali.png">
+<meta property="og:title" content="Ornali Eventos — Dar asas à decoração">
+<meta property="og:description" content="Temas prontos e decorações personalizadas para chás de bebê, aniversários, noivados, casamentos intimistas e chás de panela.">
+<meta property="og:image" content="assets/img/logo-ornali.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#39447B; --azul-esc:#2B3462; --bege:#F5F1E7; --bege-2:#EDE6D6; --dourado:#C8AE82;
+  --texto:#2E3350; --suave:#6B6F86; --branco:#FFFFFF;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Montserrat',system-ui,sans-serif;
+  --raio:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--texto);background:var(--branco);line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--azul);line-height:1.15}
+.eyebrow{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--dourado);font-weight:600;display:block;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:500;font-size:.92rem;text-decoration:none;transition:.25s;border:1.5px solid var(--azul);cursor:pointer;font-family:var(--sans)}
+.btn-primario{background:var(--azul);color:#fff}
+.btn-primario:hover{background:var(--azul-esc)}
+.btn-linha{color:var(--azul);background:transparent}
+.btn-linha:hover{background:var(--azul);color:#fff}
+.btn svg{width:18px;height:18px}
 
-<!-- ============================================================
-     COMO EDITAR:
-     - Número do WhatsApp: procure por SEU_NUMERO_WHATSAPP (aparece
-       várias vezes no arquivo) e troque pelo número real, no
-       formato internacional sem espaços. Ex: 5511999999999
-     - Link do Instagram: procure por SEU_INSTAGRAM
-     - E-mail: procure por seuemail@ornali.com
-     - Textos: edite diretamente entre as tags de cada seção
-     - Cores: edite o arquivo style.css, bloco :root no topo
-     - Logo: arquivos em /assets (logo-full.png e logo-mark.png)
-     ============================================================ -->
+/* faixa de prévia */
+.previa{background:var(--dourado);color:#fff;text-align:center;font-size:.8rem;padding:8px 16px;letter-spacing:.04em}
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+/* topo */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--bege-2)}
+.topo{display:flex;align-items:center;justify-content:space-between;height:84px}
+.topo .marca img{height:66px;width:auto}
+nav ul{display:flex;gap:34px;list-style:none}
+nav a{text-decoration:none;font-size:.86rem;font-weight:500;color:var(--texto);letter-spacing:.03em}
+nav a:hover{color:var(--azul)}
+.topo .btn{padding:11px 22px;font-size:.84rem}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;color:var(--azul)}
+.menu-btn svg{width:28px;height:28px}
 
-<link rel="stylesheet" href="style.css" />
+.textura{background-color:var(--bege);background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22340%22%20height%3D%22340%22%20viewBox%3D%220%200%20340%20340%22%3E%3Cg%20transform%3D%22translate%2880%2090%29%20rotate%28-14%29%20scale%280.9%29%20translate%28-50%20-50%29%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20opacity%3D%220.085%22%3E%0A%3Cpath%20stroke%3D%22%2339447B%22%20stroke-width%3D%222.2%22%20d%3D%22M49%2044%20C44%2030%2030%2010%2016%208%20C10%208%2012%2018%2018%2028%20C24%2038%2036%2044%2047%2047%20M47%2049%20C36%2052%2028%2060%2030%2070%20C32%2076%2040%2072%2044%2064%20C46%2058%2047%2054%2048%2051%20M51%2044%20C56%2030%2070%2010%2084%208%20C90%208%2088%2018%2082%2028%20C76%2038%2064%2044%2053%2047%20M53%2049%20C64%2052%2072%2060%2070%2070%20C68%2076%2060%2072%2056%2064%20C54%2058%2053%2054%2052%2051%22/%3E%0A%3Cpath%20stroke%3D%22%23C8AE82%22%20stroke-width%3D%221.6%22%20d%3D%22M45%2042%20C40%2030%2030%2016%2020%2014%20C16%2015%2018%2022%2022%2029%20C27%2037%2036%2042%2044%2045%20M45%2053%20C38%2056%2033%2061%2034%2067%20C36%2070%2040%2067%2043%2062%20M55%2042%20C60%2030%2070%2016%2080%2014%20C84%2015%2082%2022%2078%2029%20C73%2037%2064%2042%2056%2045%20M55%2053%20C62%2056%2067%2061%2066%2067%20C64%2070%2060%2067%2057%2062%22/%3E%0A%3Cpath%20stroke%3D%22%2339447B%22%20stroke-width%3D%222.4%22%20d%3D%22M50%2036%20C50%2046%2050%2056%2049%2066%22/%3E%0A%3Cpath%20stroke%3D%22%2339447B%22%20stroke-width%3D%221.3%22%20d%3D%22M50%2036%20C48%2028%2045%2024%2041%2021%20M50%2036%20C52%2028%2055%2024%2059%2021%20M49%2066%20C52%2076%2062%2080%2070%2076%20C76%2072%2072%2066%2068%2069%20C65%2072%2070%2076%2076%2074%20C82%2072%2086%2068%2090%2064%22/%3E%0A%3Ccircle%20cx%3D%2241%22%20cy%3D%2221%22%20r%3D%221.6%22%20fill%3D%22%23C8AE82%22%20stroke%3D%22none%22/%3E%3Ccircle%20cx%3D%2259%22%20cy%3D%2221%22%20r%3D%221.6%22%20fill%3D%22%23C8AE82%22%20stroke%3D%22none%22/%3E%0A%3C/g%3E%3Cg%20transform%3D%22translate%28255%20250%29%20rotate%2818%29%20scale%280.6%29%20translate%28-50%20-50%29%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20opacity%3D%220.085%22%3E%0A%3Cpath%20stroke%3D%22%2339447B%22%20stroke-width%3D%222.2%22%20d%3D%22M49%2044%20C44%2030%2030%2010%2016%208%20C10%208%2012%2018%2018%2028%20C24%2038%2036%2044%2047%2047%20M47%2049%20C36%2052%2028%2060%2030%2070%20C32%2076%2040%2072%2044%2064%20C46%2058%2047%2054%2048%2051%20M51%2044%20C56%2030%2070%2010%2084%208%20C90%208%2088%2018%2082%2028%20C76%2038%2064%2044%2053%2047%20M53%2049%20C64%2052%2072%2060%2070%2070%20C68%2076%2060%2072%2056%2064%20C54%2058%2053%2054%2052%2051%22/%3E%0A%3Cpath%20stroke%3D%22%23C8AE82%22%20stroke-width%3D%221.6%22%20d%3D%22M45%2042%20C40%2030%2030%2016%2020%2014%20C16%2015%2018%2022%2022%2029%20C27%2037%2036%2042%2044%2045%20M45%2053%20C38%2056%2033%2061%2034%2067%20C36%2070%2040%2067%2043%2062%20M55%2042%20C60%2030%2070%2016%2080%2014%20C84%2015%2082%2022%2078%2029%20C73%2037%2064%2042%2056%2045%20M55%2053%20C62%2056%2067%2061%2066%2067%20C64%2070%2060%2067%2057%2062%22/%3E%0A%3Cpath%20stroke%3D%22%2339447B%22%20stroke-width%3D%222.4%22%20d%3D%22M50%2036%20C50%2046%2050%2056%2049%2066%22/%3E%0A%3Cpath%20stroke%3D%22%2339447B%22%20stroke-width%3D%221.3%22%20d%3D%22M50%2036%20C48%2028%2045%2024%2041%2021%20M50%2036%20C52%2028%2055%2024%2059%2021%20M49%2066%20C52%2076%2062%2080%2070%2076%20C76%2072%2072%2066%2068%2069%20C65%2072%2070%2076%2076%2074%20C82%2072%2086%2068%2090%2064%22/%3E%0A%3Ccircle%20cx%3D%2241%22%20cy%3D%2221%22%20r%3D%221.6%22%20fill%3D%22%23C8AE82%22%20stroke%3D%22none%22/%3E%3Ccircle%20cx%3D%2259%22%20cy%3D%2221%22%20r%3D%221.6%22%20fill%3D%22%23C8AE82%22%20stroke%3D%22none%22/%3E%0A%3C/g%3E%3Cg%20transform%3D%22translate%28270%2060%29%20rotate%2830%29%20scale%280.38%29%20translate%28-50%20-50%29%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20opacity%3D%220.068%22%3E%0A%3Cpath%20stroke%3D%22%2339447B%22%20stroke-width%3D%222.2%22%20d%3D%22M49%2044%20C44%2030%2030%2010%2016%208%20C10%208%2012%2018%2018%2028%20C24%2038%2036%2044%2047%2047%20M47%2049%20C36%2052%2028%2060%2030%2070%20C32%2076%2040%2072%2044%2064%20C46%2058%2047%2054%2048%2051%20M51%2044%20C56%2030%2070%2010%2084%208%20C90%208%2088%2018%2082%2028%20C76%2038%2064%2044%2053%2047%20M53%2049%20C64%2052%2072%2060%2070%2070%20C68%2076%2060%2072%2056%2064%20C54%2058%2053%2054%2052%2051%22/%3E%0A%3Cpath%20stroke%3D%22%23C8AE82%22%20stroke-width%3D%221.6%22%20d%3D%22M45%2042%20C40%2030%2030%2016%2020%2014%20C16%2015%2018%2022%2022%2029%20C27%2037%2036%2042%2044%2045%20M45%2053%20C38%2056%2033%2061%2034%2067%20C36%2070%2040%2067%2043%2062%20M55%2042%20C60%2030%2070%2016%2080%2014%20C84%2015%2082%2022%2078%2029%20C73%2037%2064%2042%2056%2045%20M55%2053%20C62%2056%2067%2061%2066%2067%20C64%2070%2060%2067%2057%2062%22/%3E%0A%3Cpath%20stroke%3D%22%2339447B%22%20stroke-width%3D%222.4%22%20d%3D%22M50%2036%20C50%2046%2050%2056%2049%2066%22/%3E%0A%3Cpath%20stroke%3D%22%2339447B%22%20stroke-width%3D%221.3%22%20d%3D%22M50%2036%20C48%2028%2045%2024%2041%2021%20M50%2036%20C52%2028%2055%2024%2059%2021%20M49%2066%20C52%2076%2062%2080%2070%2076%20C76%2072%2072%2066%2068%2069%20C65%2072%2070%2076%2076%2074%20C82%2072%2086%2068%2090%2064%22/%3E%0A%3Ccircle%20cx%3D%2241%22%20cy%3D%2221%22%20r%3D%221.6%22%20fill%3D%22%23C8AE82%22%20stroke%3D%22none%22/%3E%3Ccircle%20cx%3D%2259%22%20cy%3D%2221%22%20r%3D%221.6%22%20fill%3D%22%23C8AE82%22%20stroke%3D%22none%22/%3E%0A%3C/g%3E%3C/svg%3E");background-size:430px 430px;background-position:-60px -40px}
+/* hero */
+.hero{background-color:var(--bege);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding-top:72px;padding-bottom:88px}
+.hero h1{font-size:clamp(2.4rem,5vw,3.9rem);margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--dourado)}
+.hero p{font-size:1.06rem;color:var(--suave);max-width:480px;margin-bottom:34px}
+.hero .acoes{display:flex;gap:14px;flex-wrap:wrap}
+.mosaico{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px;position:relative}
+.mosaico img{width:100%;height:100%;object-fit:cover;border-radius:var(--raio);box-shadow:0 18px 40px -22px rgba(43,52,98,.45)}
+.mosaico .m1{grid-row:span 2;aspect-ratio:3/5}
+.mosaico .m2,.mosaico .m3{aspect-ratio:4/5}
+.hero-logo{display:flex;justify-content:center;align-items:center}
+.hero-logo img{width:100%;max-width:500px;height:auto}
+@media (max-width:980px){.hero-logo{order:-1}.hero-logo img{max-width:340px}}
+
+/* valores */
+.valores{border-bottom:1px solid var(--bege-2)}
+.valores .wrap{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.valor{padding:38px 20px}
+.valor+.valor{border-left:1px solid var(--bege-2)}
+.valor h3{font-size:1.25rem;margin-bottom:6px}
+.valor p{font-size:.88rem;color:var(--suave)}
+
+section{padding:96px 0}
+.titulo{text-align:center;max-width:640px;margin:0 auto 54px}
+.titulo h2{font-size:clamp(2rem,3.6vw,2.8rem);margin-bottom:14px}
+.titulo p{color:var(--suave)}
+
+/* sobre */
+.sobre .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.sobre img{border-radius:var(--raio);aspect-ratio:4/5;object-fit:cover;width:100%}
+.sobre h2{font-size:clamp(2rem,3.4vw,2.6rem);margin-bottom:22px}
+.sobre p{color:var(--suave);margin-bottom:16px}
+.assinatura{font-family:var(--serif);font-style:italic;color:var(--azul);font-size:1.2rem;margin-top:10px}
+
+/* serviços */
+.servicos{background:var(--bege)}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.card{grid-column:span 2;background:#fff;border-radius:var(--raio);overflow:hidden;text-decoration:none;transition:.3s;display:flex;flex-direction:column;cursor:pointer}
+.card:nth-child(4){grid-column:2 / span 2}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(43,52,98,.5)}
+.card img{aspect-ratio:1/1;object-fit:cover;width:100%}
+.card div{padding:24px 24px 28px}
+.card h3{font-size:1.32rem;margin-bottom:8px}
+.card p{font-size:.88rem;color:var(--suave);margin-bottom:14px}
+.card span{font-size:.8rem;font-weight:600;color:var(--azul);letter-spacing:.06em}
+
+/* portfólio */
+.abas{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px}
+.aba{border:1.5px solid var(--bege-2);background:#fff;color:var(--texto);padding:10px 20px;border-radius:999px;font-family:var(--sans);font-size:.84rem;font-weight:500;cursor:pointer;transition:.2s}
+.aba:hover{border-color:var(--dourado)}
+.aba.ativa{background:var(--azul);border-color:var(--azul);color:#fff}
+.aba small{opacity:.65;margin-left:4px}
+.galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.foto{position:relative;border-radius:14px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/5;background:var(--bege)}
+.foto img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.foto:hover img{transform:scale(1.04)}
+.foto figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;font-size:.78rem;color:#fff;background:linear-gradient(transparent,rgba(30,34,64,.7));font-weight:500;letter-spacing:.03em;opacity:0;transition:.3s}
+.foto:hover figcaption{opacity:1}
+.cat-desc{text-align:center;color:var(--suave);max-width:620px;margin:-18px auto 34px;font-size:.95rem}
+
+/* temas prontos */
+.temas{background:#fff}
+.temas .tema{border:1px solid var(--bege-2)}
+.temas-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+.temas-grid .tema{width:calc((100% - 48px)/3)}
+.tema{background:#fff;border-radius:var(--raio);overflow:hidden;display:flex;flex-direction:column;transition:.3s}
+.tema:hover{box-shadow:0 22px 44px -26px rgba(43,52,98,.5);transform:translateY(-3px)}
+.tema .capa{position:relative;cursor:zoom-in;aspect-ratio:4/5;overflow:hidden;background:var(--bege-2)}
+.tema .capa img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.tema:hover .capa img{transform:scale(1.04)}
+.tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.94);color:var(--azul);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+.qtd{position:absolute;bottom:14px;right:14px;background:rgba(30,34,64,.72);color:#fff;font-size:.72rem;padding:6px 11px;border-radius:999px}
+.tema .corpo{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+.tema h3{font-size:1.4rem;margin-bottom:8px}
+.tema p{font-size:.87rem;color:var(--suave);margin-bottom:20px;flex:1}
+.tema .btns{display:flex;gap:10px;flex-wrap:wrap}
+.tema .btn{padding:10px 18px;font-size:.8rem}
+.temas-nota{text-align:center;margin-top:40px;color:var(--suave);font-size:.92rem}
+.temas-nota a{color:var(--azul);font-weight:600}
+
+/* personalizados */
+.perso .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.perso h2{font-size:clamp(2rem,3.4vw,2.6rem);margin-bottom:18px}
+.perso p{color:var(--suave);margin-bottom:26px}
+.lista{list-style:none;display:grid;gap:0;border-top:1px solid var(--bege-2)}
+.lista li{display:flex;align-items:center;gap:16px;padding:18px 4px;border-bottom:1px solid var(--bege-2);font-family:var(--serif);font-size:1.18rem;color:var(--azul)}
+.lista li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--dourado);flex:none}
+
+/* sobre (texto) */
+.sobre-txt{text-align:center}
+.sobre-txt .wrap{max-width:820px}
+.sobre-txt h2{font-size:clamp(2rem,3.4vw,2.6rem);margin-bottom:22px}
+.sobre-txt p{color:var(--suave);margin-bottom:14px;font-size:1.02rem}
+.valores3{display:grid;grid-template-columns:repeat(3,1fr);margin-top:44px;border-top:1px solid var(--bege-2);border-bottom:1px solid var(--bege-2)}
+.valores3 div{padding:28px 14px}
+.valores3 div+div{border-left:1px solid var(--bege-2)}
+.valores3 h3{font-size:1.2rem;margin-bottom:4px}
+.valores3 p{font-size:.85rem;margin:0}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(22,26,50,.94);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.lb.aberto{display:flex}
+.lb img{max-width:92vw;max-height:84vh;border-radius:10px;object-fit:contain}
+.lb .leg{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#fff;font-size:.88rem;letter-spacing:.04em}
+.lb button{position:absolute;background:rgba(255,255,255,.12);border:0;color:#fff;width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:1.6rem;line-height:1}
+.lb button:hover{background:rgba(255,255,255,.25)}
+.lb .fechar{top:20px;right:20px}
+.lb .ant{left:20px;top:50%;transform:translateY(-50%)}
+.lb .prox{right:20px;top:50%;transform:translateY(-50%)}
+
+/* como funciona */
+.passos{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;counter-reset:p}
+.passo{padding:30px 26px;border:1px solid var(--bege-2);border-radius:var(--raio);background:#fff}
+.passo b{font-family:var(--serif);font-size:2.2rem;color:var(--dourado);font-weight:400;display:block;margin-bottom:10px}
+.passo h3{font-size:1.18rem;margin-bottom:8px}
+.passo p{font-size:.88rem;color:var(--suave)}
+
+/* frase */
+.frase{background:var(--azul);color:#fff;text-align:center;padding:90px 0}
+.frase blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);max-width:820px;margin:0 auto;line-height:1.4}
+.frase cite{display:block;margin-top:20px;font-style:normal;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dourado)}
+
+/* contato */
+.contato{background-color:var(--bege)}
+.contato .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
+.contato h2{font-size:clamp(2rem,3.6vw,2.7rem);margin-bottom:18px}
+.contato .intro{color:var(--suave);margin-bottom:30px}
+.canal{display:flex;align-items:center;gap:16px;text-decoration:none;padding:16px 0;border-bottom:1px solid var(--bege-2)}
+.canal .ic{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--azul);flex:none}
+.canal .ic svg{width:20px;height:20px}
+.canal small{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--suave)}
+.canal strong{font-weight:500;color:var(--azul)}
+form{background:#fff;padding:38px;border-radius:var(--raio);display:grid;gap:16px}
+form h3{font-size:1.4rem;margin-bottom:4px}
+label{font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--texto);display:grid;gap:7px}
+input,select,textarea{font-family:var(--sans);font-size:.95rem;padding:13px 15px;border:1.5px solid var(--bege-2);border-radius:12px;background:#fff;color:var(--texto);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--dourado)}
+.linha2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form .btn{justify-content:center;margin-top:6px}
+form .nota{font-size:.76rem;color:var(--suave);text-align:center}
+
+footer{background:#fff;padding:46px 0;text-align:center;border-top:1px solid var(--bege-2)}
+footer img{height:92px;width:auto;margin:0 auto 14px}
+footer p{font-size:.8rem;color:var(--suave)}
+
+.zap{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 28px -8px rgba(0,0,0,.35);z-index:60}
+.zap svg{width:30px;height:30px;color:#fff}
+
+/* responsivo */
+@media (max-width:980px){
+  nav{display:none;position:absolute;top:84px;left:0;right:0;background:#fff;border-bottom:1px solid var(--bege-2)}
+  nav.aberto{display:block}
+  nav ul{flex-direction:column;gap:0;padding:8px 24px 18px}
+  nav li a{display:block;padding:12px 0}
+  .menu-btn{display:block}
+  .topo .btn{display:none}
+  .hero .wrap,.sobre .wrap,.contato .wrap{grid-template-columns:1fr;gap:44px}
+  .cards{grid-template-columns:1fr 1fr}
+  .card,.card:nth-child(4){grid-column:auto}
+  .galeria{grid-template-columns:repeat(3,1fr)}
+  .passos{grid-template-columns:1fr 1fr}
+  .temas-grid .tema{width:calc((100% - 24px)/2)}
+  .sobre img{aspect-ratio:16/10;max-height:460px}
+  .card:last-child{grid-column:1 / -1}
+  .card:last-child img{aspect-ratio:21/9}
+}
+@media (max-width:620px){
+  .wrap{padding:0 16px}
+  section{padding:70px 0}
+  .topo{height:72px}.topo .marca img{height:54px}
+  nav{top:72px}
+  .hero .wrap{padding-top:44px;padding-bottom:60px}
+  .valores .wrap{grid-template-columns:1fr}
+  .valor+.valor{border-left:0;border-top:1px solid var(--bege-2)}
+  .valor{padding:24px 10px}
+  .temas-grid .tema{width:100%}
+  .tema .capa{aspect-ratio:4/3}
+  .cards{grid-template-columns:1fr}
+  .card:last-child img{aspect-ratio:4/3}
+  .sobre img{aspect-ratio:4/5;max-height:none}
+  .valores3{grid-template-columns:1fr}
+  .valores3 div+div{border-left:0;border-top:1px solid var(--bege-2)}
+  .galeria{grid-template-columns:1fr 1fr;gap:10px}
+  .passos{grid-template-columns:1fr}
+  .linha2{grid-template-columns:1fr}
+  form{padding:26px 20px}
+  .foto figcaption{opacity:1;font-size:.7rem;padding:24px 10px 8px}
+  .borboleta{display:none}
+}
+</style>
 </head>
 <body>
 
-<!-- ============================================================
-     NAVEGAÇÃO
-     ============================================================ -->
-<header class="nav" id="nav">
-  <div class="envolucro nav__conteudo">
-    <a href="#topo" class="nav__marca" aria-label="Ornali — início">
-      <img src="assets/logo-mark.png" alt="Ornali" />
-    </a>
-
-    <nav class="nav__links" aria-label="Navegação principal">
-      <a href="#apresentacao">A Ornali</a>
-      <a href="#celebrar">Celebrações</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#Eventos">Eventos</a>
-      <a href="#contato">Contato</a>
+<header>
+  <div class="wrap topo">
+    <a href="#inicio" class="marca"><img src="assets/img/logo-ornali.png" alt="Ornali — Dar asas à decoração"></a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#temas">Temas prontos</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
     </nav>
-
-    <div class="nav__acoes">
-      <!-- EDITAR: número do WhatsApp -->
-      <a
-        class="botao botao--contorno-azul nav__whats"
-        href="https://wa.me/message/RMQCDFG523XHO1"   
-        target="_blank"
-        rel="noopener"
-      >
-        Falar com a Ornali
-      </a>
-      <button class="nav__alterna" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-movel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-          <line x1="3" y1="7" x2="21" y2="7"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="17" x2="21" y2="17"></line>
-        </svg>
-      </button>
-    </div>
+    <a class="btn btn-primario" href="#contato">Solicitar orçamento</a>
+    <button class="menu-btn" aria-label="Abrir menu" onclick="document.getElementById('nav').classList.toggle('aberto')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
   </div>
 </header>
 
-<!-- Menu mobile em tela cheia -->
-<nav class="menu-movel" id="menu-movel" aria-label="Menu mobile">
-  <a href="#apresentacao">A Ornali</a>
-  <a href="#celebrar">Celebrações</a>
-  <a href="#como-funciona">Como funciona</a>
-  <a href="#contato">Contato</a>
-  <a
-    class="botao botao--dourado"
-    href="https://wa.me/message/RMQCDFG523XHO1"
-    target="_blank"
-    rel="noopener"
-  >
-    Falar pelo WhatsApp
-  </a>
-</nav>
-
-<main>
-
-  <!-- ============================================================
-       1. HERO
-       ============================================================ -->
-  <section class="hero" id="topo">
-    <div class="envolucro hero__campo">
-      <img class="hero__logo" src="assets/logo-full.png" alt="Ornali — Dar asas à decoração" />
-      <h1 class="hero__titulo">Dar asas à decoração.</h1>
-      <p class="hero__sub">Celebramos momentos únicos através de uma decoração feita para ser sua.</p>
-      <div class="hero__acoes">
-        <!-- EDITAR: número do WhatsApp -->
-        <a
-          class="botao botao--azul"
-          href="https://wa.me/message/RMQCDFG523XHO1"
-          target="_blank"
-          rel="noopener"
-        >
-          Falar com a Ornali
-        </a>
-      </div>
-
-      <div class="hero__rolar" aria-hidden="true">
-        <span>Role</span>
-        <div class="hero__rolar-linha"></div>
+<main id="inicio">
+<section class="hero textura" style="padding:0">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Temas prontos & eventos personalizados</span>
+      <h1>Delicadeza que transforma. <em>Detalhes que permanecem.</em></h1>
+      <p>Temas prontos para chás de bebê, chás revelação e aniversários, além de decorações exclusivas para noivados e casamentos intimistas, chás de panela e celebrações únicas.</p>
+      <div class="acoes">
+        <a class="btn btn-primario" href="#temas">Ver temas prontos</a>
+        <a class="btn btn-linha" href="#contato">Solicitar orçamento</a>
       </div>
     </div>
-  </section>
-
-  <!-- ============================================================
-       2. APRESENTAÇÃO
-       ============================================================ -->
-  <section class="secao secao--clara" id="apresentacao">
-    <div class="envolucro apresentacao__grade">
-      <h2 class="apresentacao__titulo revelar">Cada celebração tem uma história.</h2>
-      <div class="apresentacao__texto">
-        <p class="revelar">
-        Ornali, união de “ornare” — decorar — e “Ali” — asas, em italiano — nasceu para dar asas à decoração. Transformando celebrações em experiências que carregam beleza, significado e personalidade. 
-        </p>
-        <p class="revelar">
-          Acreditamos que decorar vai muito além de escolher cores e elementos: é entender quem está celebrando, o que aquele momento representa, e transformar tudo isso em uma composição que tenha a sua essência, que conte a sua história.
-        </p>
-        <p class="revelar">
-          Por isso, cada projeto é pensado com cuidado, delicadeza e atenção aos detalhes — do primeiro rascunho ao último arranjo colocado em seu lugar.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       3. O QUE CELEBRAMOS
-       ============================================================ -->
-  <section class="secao secao--bege" id="celebrar">
-    <div class="envolucro">
-      <div class="celebra__cabecalho revelar">
-        <p class="rotulo secao__eyebrow">Celebrações</p>
-        <h2 class="secao__titulo" style="margin:0 auto;">O que você quer celebrar?</h2>
-      </div>
-
-      <div class="celebra__grade revelar">
-        <div class="categoria" tabindex="0" data-categoria="aniversarios">
-          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18c0-3 4-4 10-4s10 1 10 4v6c0 2-2 3-10 3s-10-1-10-3v-6z"/><path d="M6 18c0 2 4 3 10 3s10-1 10-3"/><path d="M16 14v-4"/><path d="M16 6c-1.4 0-2-1-2-2s.9-2 2-2 2 1 2 2-.6 2-2 2z"/></svg>
-          <span>Aniversários</span>
-        </div>
-        <div class="categoria" tabindex="0" data-categoria="chas">
-          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6c2 2 2 5 0 7-2-2-2-5 0-7z"/><path d="M16 6c-2 2-2 5 0 7"/><path d="M16 13c3-1 6 1 6 4-3 1-6-1-6-4z"/><path d="M16 13c-3-1-6 1-6 4 3 1 6-1 6-4z"/><circle cx="16" cy="22" r="1.3" fill="currentColor" stroke="none"/><path d="M16 17v13"/></svg>
-          <span>Chás e celebrações</span>
-        </div>
-        <div class="categoria" tabindex="0" data-categoria="cha-de-bebe">
-          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M11 13h10l-1 13a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2l-1-13z"/><path d="M13 13v-2a3 3 0 0 1 6 0v2"/><path d="M12 18h8"/></svg>
-          <span>Chá de bebê e revelação</span>
-        </div>
-        <div class="categoria" tabindex="0" data-categoria="noivados">
-          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="20" r="5"/><circle cx="20" cy="20" r="5"/><path d="M14 9l2 4 2-4"/></svg>
-          <span>Noivados e Casamentos intimistas</span>
-        </div>
-        <div class="categoria" tabindex="0" data-categoria="intimistas">
-          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l12-5 12 5-12 5-12-5z"/><path d="M9 15.5V21c0 1.5 3 3 7 3s7-1.5 7-3v-5.5"/><path d="M28 13v7"/></svg>
-          <span>Celebrações intimistas</span>
-        </div>
-        <div class="categoria" tabindex="0" data-categoria="familiares">
-          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 26s-8-5.2-8-11.4C8 10.8 10.6 8 14 8c1.6 0 3 .8 4 2 1-1.2 2.4-2 4-2 3.4 0 6 2.8 6 6.6C24 20.8 16 26 16 26z" transform="scale(0.85) translate(2.5,3)"/></svg>
-          <span>Celebrações familiares</span>
-        </div>
-        <div class="categoria" tabindex="0" data-categoria="infantis">
-          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="12" rx="7" ry="8.5"/><path d="M16 20.5V27"/><path d="M13 27h6"/></svg>
-          <span>Festas infantis</span>
-        </div>
-        <div class="categoria" tabindex="0" data-categoria="personalizados">
-          <svg viewBox="0 0 32 32" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8c-3-3-9-2-9 3 0 4 5 6 9 10 4-4 9-6 9-10 0-5-6-6-9-3z"/><path d="M16 8v13"/></svg>
-          <span>Eventos Personalizados</span>
-        </div>
-      </div>
-
-      <p class="celebra__rodape revelar">
-        Tem outra ocasião em mente? Conte para a gente!
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       4. NOSSO JEITO DE CRIAR
-       ============================================================ -->
-  <section class="secao secao--azul">
-    <div class="envolucro">
-      <div class="jeito__topo revelar">
-        <p class="rotulo secao__eyebrow">Nosso jeito de criar</p>
-        <h2 class="secao__titulo" style="color:var(--bege)">Feito para ser seu.</h2>
-        <p>
-          Cada celebração começa com uma ideia, um sentimento ou uma história. A partir disso, criamos uma decoração que conversa com você e com o momento que deseja viver.
-        </p>
-      </div>
-
-      <div class="jeito__grade revelar">
-        <div class="jeito__item">
-          <span class="jeito__numero">Personalidade</span>
-          <h3>Uma decoração com a sua essência</h3>
-          <p>Nada de fórmulas prontas — cada composição nasce de quem está celebrando.</p>
-        </div>
-        <div class="jeito__item">
-          <span class="jeito__numero">Cuidado</span>
-          <h3>Cada detalhe pensado com intenção</h3>
-          <p>Da paleta de cores ao último arranjo, tudo é definido com propósito.</p>
-        </div>
-        <div class="jeito__item">
-          <span class="jeito__numero">Exclusividade</span>
-          <h3>Projetos criados para cada celebração</h3>
-          <p>Um projeto novo para cada história — nunca uma repetição do anterior.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       5. COMO FUNCIONA
-       ============================================================ -->
-  <section class="secao secao--clara" id="como-funciona">
-    <div class="envolucro">
-      <div class="celebra__cabecalho revelar">
-        <p class="rotulo secao__eyebrow">Como funciona</p>
-        <h2 class="secao__titulo" style="margin:0 auto;">Do primeiro contato à celebração</h2>
-      </div>
-
-      <div class="etapas revelar">
-        <div class="etapa">
-          <div class="etapa__linha">
-            <span class="etapa__numero">01</span>
-          </div>
-          <div class="etapa__corpo">
-            <h3>Conversamos</h3>
-            <p>Você conta para a gente o que deseja celebrar.</p>
-          </div>
-        </div>
-        <div class="etapa">
-          <div class="etapa__linha">
-            <span class="etapa__numero">02</span>
-          </div>
-          <div class="etapa__corpo">
-            <h3>Criamos</h3>
-            <p>Pensamos na proposta, nos detalhes e na atmosfera da celebração.</p>
-          </div>
-        </div>
-        <div class="etapa">
-          <div class="etapa__linha">
-            <span class="etapa__numero">03</span>
-          </div>
-          <div class="etapa__corpo">
-            <h3>Planejamos</h3>
-            <p>Organizamos tudo para que cada elemento esteja em harmonia.</p>
-          </div>
-        </div>
-        <div class="etapa">
-          <div class="etapa__linha">
-            <span class="etapa__numero">04</span>
-          </div>
-          <div class="etapa__corpo">
-            <h3>Celebramos</h3>
-            <p>Você aproveita o momento. Nós cuidamos da beleza.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       6. NOSSOS EVENTOS (carrossel de projetos)
-       ------------------------------------------------------------
-       NÃO EDITE a estrutura abaixo — os cards de cada projeto são
-       criados automaticamente pelo script.js a partir de uma lista.
-
-       PARA ADICIONAR, TROCAR OU REMOVER FOTOS DE PROJETOS:
-       abra o script.js, procure por "PARA ADICIONAR FOTOS DE
-       PROJETOS" e edite a lista "projetos" — é só titulo + caminho
-       do arquivo da foto. O carrossel se ajusta sozinho para
-       qualquer quantidade de projetos.
-       ============================================================ -->
-  <section class="secao secao--clara projetos" id="Eventos">
-    <div class="envolucro">
-      <div class="celebra__cabecalho revelar">
-        <p class="rotulo secao__eyebrow">Nossos eventos</p>
-        <h2 class="secao__titulo" style="margin:0 auto;">Onde cada detalhe encontra seu lugar</h2>
-      </div>
-
-      <!-- "Janela" = o que aparece na tela (esconde o resto da esteira).
-           "Pista" = a esteira comprida com todos os cards lado a lado,
-           que o script.js desliza automaticamente para a esquerda. -->
-      <div class="projetos__janela revelar" id="projetos-janela">
-        <div class="projetos__pista" id="projetos-pista">
-          <!-- Cards inseridos aqui pelo script.js -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       7. DIFERENCIAL
-       ============================================================ -->
-  <section class="secao secao--bege">
-    <div class="envolucro diferencial__grade">
-      <div class="diferencial__texto revelar">
-        <p class="rotulo secao__eyebrow">Diferencial</p>
-        <h2 class="secao__titulo">Não é apenas decoração.</h2>
-        <p>É sobre criar uma atmosfera que faça sentido para quem está celebrando.</p>
-      </div>
-
-      <ul class="diferencial__lista revelar">
-        <li>Personalização</li>
-        <li>Delicadeza</li>
-        <li>Atenção aos detalhes</li>
-        <li>Harmonia estética</li>
-        <li>Atendimento próximo</li>
-        <li>Projetos pensados para cada ocasião</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       8. CHAMADA PARA ORÇAMENTO
-       ============================================================ -->
-  <section class="secao secao--azul cta" id="contato">
-    <div class="envolucro">
-      <h2 class="cta__titulo">Vamos dar asas à sua celebração?</h2>
-      <p class="cta__sub">Conte para a Ornali o que você deseja celebrar e vamos imaginar esse momento juntos.</p>
-      <div class="cta__acoes">
-        <!-- EDITAR: número do WhatsApp -->
-        <a
-          class="botao botao--dourado"
-          href="https://wa.me/message/RMQCDFG523XHO1"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 20.2 12 8.2 8.2 0 0 1 12 20.2z"/></svg>
-          Conversar pelo WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       9. INSTAGRAM
-       ============================================================ -->
-  <section class="secao secao--clara instagram">
-    <div class="envolucro">
-      <svg class="instagram__marca" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
-        <path d="M6 20c0-6 5-11 11-14-1 6-2 9-6 12-3 2.3-5 2-5 2z"/>
-        <path d="M15 8c1 1.5 1.5 3.5 0 6-1.5-2.5-1-4.5 0-6z"/>
-        <path d="M17 12c2-.6 4 .3 4.5 2.2-2 .6-4-.2-4.5-2.2z"/>
-        <path d="M17 12c-2-.6-4 .3-4.5 2.2 2 .6 4-.2 4.5-2.2z"/>
-      </svg>
-      <h2>Continue acompanhando a Ornali.</h2>
-      <p>Novas ideias, inspirações e celebrações por aqui.</p>
-      <!-- EDITAR: link do Instagram -->
-      <a class="botao botao--contorno-azul" href="https://instagram.com/ornali.eventos" target="_blank" rel="noopener">
-        @ornali
-      </a>
-    </div>
-  </section>
-
-</main>
-
-<!-- ============================================================
-     RODAPÉ
-     ============================================================ -->
-<footer class="rodape">
-  <div class="envolucro">
-    <div class="rodape__topo">
-      <span class="rodape__marca">Ornali</span>
-      <span class="rodape__slogan rotulo">Dar asas à decoração</span>
-    </div>
-
-    <ul class="rodape__links">
-      <li>
-        <!-- EDITAR: link do Instagram -->
-        <a href="https://instagram.com/ornali.eventos" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
-          Instagram
-        </a>
-      </li>
-      <li>
-        <!-- EDITAR: número do WhatsApp -->
-        <a href="https://wa.me/message/RMQCDFG523XHO1" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 20.2 12 8.2 8.2 0 0 1 12 20.2z"/></svg>
-          WhatsApp
-        </a>
-      </li>
-      <li>
-        <!-- EDITAR: e-mail -->
-        <a href="https://instagram.com/ornali.eventos">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-          E-mail
-        </a>
-      </li>
-    </ul>
-
-    <div class="rodape__base">
-      © 2026 Ornali. Todos os direitos reservados.
+    <div class="hero-logo">
+      <img src="assets/img/logo-ornali-destaque.png" alt="Ornali — Dar asas à decoração">
     </div>
   </div>
-</footer>
+</section>
 
-<!-- ============================================================
-     BOTÃO FLUTUANTE DO WHATSAPP (mobile e desktop)
-     ============================================================ -->
-<!-- EDITAR: número do WhatsApp -->
-<a
-  class="whats-flutuante"
-  id="whats-flutuante"
-  href="https://wa.me/message/RMQCDFG523XHO1" 
-  target="_blank"
-  rel="noopener"
-  aria-label="Falar com a Ornali pelo WhatsApp"
->
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 20.2 12 8.2 8.2 0 0 1 12 20.2z"/></svg>
-</a>
-
-<!-- ============================================================
-     CARD FLUTUANTE — CELEBRAÇÕES (modal de galeria)
-     Não edite a estrutura abaixo: o conteúdo (título, texto e
-     fotos) é preenchido pelo script.js a partir do objeto
-     "dadosCelebracoes". Para trocar textos/fotos, edite o
-     script.js — procure por "dadosCelebracoes".
-     ============================================================ -->
-<div class="modal-celebracao" id="modal-celebracao" aria-hidden="true">
-  <div class="modal-celebracao__fundo" data-fechar-modal></div>
-
-  <div class="modal-celebracao__caixa" role="dialog" aria-modal="true" aria-labelledby="modal-celebracao-titulo">
-    <button class="modal-celebracao__fechar" id="modal-fechar" aria-label="Fechar" type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-
-    <div class="modal-celebracao__painel">
-      <div class="modal-celebracao__icone" id="modal-celebracao-icone" aria-hidden="true"></div>
-
-      <p class="rotulo modal-celebracao__rotulo">Celebrações</p>
-      <h3 class="modal-celebracao__titulo" id="modal-celebracao-titulo"></h3>
-      <span class="modal-celebracao__linha" aria-hidden="true"></span>
-      <p class="modal-celebracao__texto" id="modal-celebracao-texto"></p>
-
-      <div class="modal-celebracao__rodape">
-        <span class="modal-celebracao__contador" id="modal-celebracao-contador">1 / 1</span>
-        <div class="modal-celebracao__mini-setas">
-          <button id="modal-mini-esq" aria-label="Foto anterior" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          <button id="modal-mini-dir" aria-label="Próxima foto" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-celebracao__imagem" id="modal-celebracao-area-imagem">
-      <div class="modal-celebracao__marca-agua" id="modal-celebracao-marca-agua" aria-hidden="true"></div>
-      <img class="modal-celebracao__foto" id="modal-celebracao-foto-a" src="" alt="" />
-      <img class="modal-celebracao__foto" id="modal-celebracao-foto-b" src="" alt="" />
-    </div>
+<div class="valores">
+  <div class="wrap">
+    <div class="valor"><h3>Delicadeza</h3><p>Leveza visual e cuidado em cada detalhe</p></div>
+    <div class="valor"><h3>Personalização</h3><p>Cada evento com identidade própria</p></div>
+    <div class="valor"><h3>Encanto</h3><p>Experiências que viram memória</p></div>
   </div>
 </div>
 
-<script src="script.js"></script>
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <img src="assets/img/casamentos/casamentos-03.jpg" alt="Arranjo floral Ornali">
+    <div>
+      <span class="eyebrow">Sobre a Ornali</span>
+      <h2>Uma marca para dar asas aos momentos especiais</h2>
+      <p>A Ornali transforma ideias em celebrações delicadas, personalizadas e cheias de significado — cuidando dos detalhes para que cada momento seja lembrado com carinho.</p>
+      <p>Do primeiro contato à desmontagem, ouvimos a sua história e traduzimos o que você imagina em cores, flores, balões e cenários pensados sob medida para o seu espaço.</p>
+      <p class="assinatura">Decoração com elegância, afeto e criatividade.</p>
+    </div>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <div class="titulo">
+      <span class="eyebrow">O que fazemos</span>
+      <h2>Celebrações para cada fase da vida</h2>
+      <p>Temas prontos e decorações exclusivas, sempre com cores, nomes, idades e detalhes ajustados ao seu evento.</p>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section class="temas" id="temas">
+  <div class="wrap">
+    <div class="titulo">
+      <span class="eyebrow">Temas prontos</span>
+      <h2>Escolha o seu tema e celebre</h2>
+      <p>Decorações já criadas e testadas, com montagem e desmontagem inclusas. É só escolher e ajustamos nomes, idades e detalhes para o seu evento.</p>
+    </div>
+    <div class="abas" id="abasTemas"></div>
+    <div class="temas-grid" id="temasGrid"></div>
+    <p class="temas-nota">Não encontrou o tema ideal? <a href="#contato">Criamos uma decoração exclusiva para você.</a></p>
+  </div>
+</section>
+
+<section id="portfolio" style="background:var(--bege)">
+  <div class="wrap">
+    <div class="titulo">
+      <span class="eyebrow">Portfólio</span>
+      <h2>Eventos que já decoramos</h2>
+      <p>Escolha uma categoria e clique nas fotos para ver em tamanho maior.</p>
+    </div>
+    <div class="abas" id="abas"></div>
+    <p class="cat-desc" id="catDesc"></p>
+    <div class="galeria" id="galeria"></div>
+  </div>
+</section>
+
+
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="titulo">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Do sonho à montagem, cuidamos de tudo</h2>
+    </div>
+    <div class="passos">
+      <div class="passo"><b>01</b><h3>Escolha o tema</h3><p>Escolha um dos temas prontos ou conte a sua ideia para uma decoração exclusiva.</p></div>
+      <div class="passo"><b>02</b><h3>Ajustes e proposta</h3><p>Personalizamos nomes, idades e detalhes e enviamos uma proposta com valores claros.</p></div>
+      <div class="passo"><b>03</b><h3>Montagem</h3><p>No dia, nossa equipe chega antes e monta cada detalhe com cuidado.</p></div>
+      <div class="passo"><b>04</b><h3>Desmontagem inclusa</h3><p>Ao final, desmontamos tudo. Você só se preocupa em aproveitar.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="frase">
+  <div class="wrap">
+    <blockquote>“O tempo passa, mas a memória fica.”</blockquote>
+    <cite>Ornali Eventos</cite>
+  </div>
+</div>
+
+<section class="contato textura" id="contato">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Contato</span>
+      <h2>Vamos juntos dar asas à sua celebração?</h2>
+      <p class="intro">Conte um pouco sobre o seu evento e receba uma proposta feita para você.</p>
+      <a class="canal" href="https://wa.me/5511999840205" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span>
+        <span><small>WhatsApp</small><strong>(11) 99984-0205</strong></span>
+      </a>
+      <a class="canal" href="mailto:ornali.eventos@gmail.com">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <span><small>E-mail</small><strong>ornali.eventos@gmail.com</strong></span>
+      </a>
+      <a class="canal" href="https://www.instagram.com/ornali.eventos/" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+        <span><small>Instagram</small><strong>@ornali.eventos</strong></span>
+      </a>
+    </div>
+    <form id="form" onsubmit="return enviar(event)">
+      <h3>Solicite seu orçamento</h3>
+      <label>Seu nome<input name="nome" required placeholder="Como podemos te chamar?"></label>
+      <div class="linha2">
+        <label>Tipo de evento
+          <select name="tipo" required>
+            <option value="">Selecione</option>
+            <option>Tema pronto (escolhido no site)</option>
+            <option>Chá de bebê / Chá revelação</option>
+            <option>Noivado / Casamento intimista</option>
+            <option>Aniversário / Festa infantil</option>
+            <option>Chá de panela / Chá de casa nova</option>
+            <option>Evento personalizado</option>
+          </select>
+        </label>
+        <label>Data do evento<input name="data" type="date"></label>
+      </div>
+      <label>Conte sobre o seu evento<textarea name="msg" rows="4" placeholder="Local, número de convidados, cores e ideias que você tem em mente..."></textarea></label>
+      <button class="btn btn-primario" type="submit">Enviar pelo WhatsApp</button>
+      <p class="nota">Ao enviar, o WhatsApp abre com a sua mensagem pronta.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <img src="assets/img/logo-ornali.png" alt="Ornali">
+  <p>© <span id="ano"></span> Ornali Eventos · Decoração e eventos personalizados</p>
+</footer>
+
+<a class="zap" href="https://wa.me/5511999840205" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<div class="lb" id="lb" onclick="if(event.target===this)fecharLb()">
+  <button class="fechar" onclick="fecharLb()" aria-label="Fechar">×</button>
+  <button class="ant" onclick="mover(-1)" aria-label="Anterior">‹</button>
+  <img id="lbImg" alt="">
+  <button class="prox" onclick="mover(1)" aria-label="Próxima">›</button>
+  <div class="leg" id="lbLeg"></div>
+</div>
+
+<script>
+const CATS = {"casamentos": [{"file": "assets/img/casamentos/casamentos-01.jpg", "cap": "Mesa dos noivos"}, {"file": "assets/img/casamentos/casamentos-02.jpg", "cap": "Mesa do bolo"}, {"file": "assets/img/casamentos/casamentos-03.jpg", "cap": "Arranjo floral"}, {"file": "assets/img/casamentos/casamentos-04.jpg", "cap": "Painel de boas-vindas"}, {"file": "assets/img/casamentos/casamentos-05.jpg", "cap": "Centro de mesa"}, {"file": "assets/img/casamentos/casamentos-06.jpg", "cap": "Mesa de lembrancinhas"}], "chas-de-panela": [{"file": "assets/img/chas-de-panela/chas-de-panela-01.jpg", "cap": "Chá da Andreza"}, {"file": "assets/img/chas-de-panela/chas-de-panela-02.jpg", "cap": "Chá da Andreza"}, {"file": "assets/img/chas-de-panela/chas-de-panela-03.jpg", "cap": "Chá da Andreza"}, {"file": "assets/img/chas-de-panela/chas-de-panela-04.jpg", "cap": "Chá da Andreza"}, {"file": "assets/img/chas-de-panela/chas-de-panela-05.jpg", "cap": "Lembrancinhas"}, {"file": "assets/img/chas-de-panela/chas-de-panela-06.jpg", "cap": "Detalhes rústicos"}, {"file": "assets/img/chas-de-panela/chas-de-panela-07.jpg", "cap": "Chá de Casa Nova"}, {"file": "assets/img/chas-de-panela/chas-de-panela-08.jpg", "cap": "Chá de Casa Nova"}, {"file": "assets/img/chas-de-panela/chas-de-panela-09.jpg", "cap": "Lembrancinhas"}, {"file": "assets/img/chas-de-panela/chas-de-panela-10.jpg", "cap": "Centros de mesa"}, {"file": "assets/img/chas-de-panela/chas-de-panela-11.jpg", "cap": "Detalhes personalizados"}], "personalizados": [{"file": "assets/img/personalizados/personalizados-01.jpg", "cap": "Pioneiras"}, {"file": "assets/img/personalizados/personalizados-02.jpg", "cap": "Pioneiras"}, {"file": "assets/img/personalizados/personalizados-03.jpg", "cap": "Pioneiras"}, {"file": "assets/img/personalizados/personalizados-04.jpg", "cap": "Pioneiras"}]};
+const TEMAS = [{"nome": "Blue Teddy", "cat": "Chá de bebê", "desc": "Inspirado no universo dos ursinhos, com tons de azul, detalhes dourados e elementos personalizados para um cenário acolhedor e cheio de charme.", "fotos": [{"file": "assets/img/chas-de-bebe/chas-de-bebe-01.jpg"}, {"file": "assets/img/chas-de-bebe/chas-de-bebe-02.jpg"}, {"file": "assets/img/chas-de-bebe/chas-de-bebe-03.jpg"}, {"file": "assets/img/chas-de-bebe/chas-de-bebe-04.jpg"}, {"file": "assets/img/chas-de-bebe/chas-de-bebe-05.jpg"}]}, {"nome": "Bosque Encantado", "cat": "Chá de bebê", "desc": "Madeira, folhagens e iluminação cênica criam um ambiente acolhedor e sofisticado, conectado à natureza.", "fotos": [{"file": "assets/img/chas-de-bebe/chas-de-bebe-07.jpg"}, {"file": "assets/img/chas-de-bebe/chas-de-bebe-08.jpg"}, {"file": "assets/img/chas-de-bebe/chas-de-bebe-09.jpg"}, {"file": "assets/img/chas-de-bebe/chas-de-bebe-10.jpg"}, {"file": "assets/img/chas-de-bebe/chas-de-bebe-11.jpg"}]}, {"nome": "Doce Revelação", "cat": "Chá revelação", "desc": "Uma composição equilibrada entre rosa e azul para um momento cheio de expectativa.", "fotos": [{"file": "assets/img/chas-de-bebe/chas-de-bebe-06.jpg"}]}, {"nome": "Game On!", "cat": "Aniversário", "desc": "Vibrante e inspirado no futebol, com cores marcantes, elementos esportivos e detalhes personalizados.", "fotos": [{"file": "assets/img/aniversarios/aniversarios-01.jpg"}, {"file": "assets/img/aniversarios/aniversarios-02.jpg"}, {"file": "assets/img/aniversarios/aniversarios-03.jpg"}]}, {"nome": "Azul Imperial", "cat": "Aniversário", "desc": "Azul profundo, tons neutros e detalhes metalizados para um cenário elegante e cheio de presença.", "fotos": [{"file": "assets/img/aniversarios/aniversarios-04.jpg"}]}, {"nome": "Baby Safari", "cat": "Aniversário", "desc": "Tons suaves de verde, elementos naturais e bichinhos delicados que traduzem leveza e aconchego.", "fotos": [{"file": "assets/img/aniversarios/aniversarios-05.jpg"}]}, {"nome": "Jardim das Borboletas", "cat": "Aniversário", "desc": "Rosa e branco com detalhes dourados, inspirado na leveza das borboletas: romântico e encantador.", "fotos": [{"file": "assets/img/aniversarios/aniversarios-06.jpg"}]}, {"nome": "Aventura nas Alturas", "cat": "Aniversário", "desc": "Balões de ar quente em tons de azul, branco e dourado para uma celebração delicada e sofisticada.", "fotos": [{"file": "assets/img/aniversarios/aniversarios-07.jpg"}]}, {"nome": "Aventura Verde", "cat": "Aniversário", "desc": "Tons de verde e azul suave com aviõezinhos e malas vintage para pequenos aventureiros.", "fotos": [{"file": "assets/img/aniversarios/aniversarios-08.jpg"}]}, {"nome": "Bluey", "cat": "Aniversário", "desc": "O universo de Bluey de forma contemporânea, com azul, tons neutros e elementos gráficos equilibrados.", "fotos": [{"file": "assets/img/aniversarios/aniversarios-09.jpg"}]}];
+const ZAP = '5511999840205';
+const INFO = {
+  'casamentos':{curto:'Noivados & Casamentos', desc:'Celebrações intimistas com flores, iluminação suave e detalhes que contam a história do casal.'},
+  'chas-de-panela':{curto:'Chás de Panela & Casa Nova', desc:'Composições cheias de afeto e bom humor para celebrar a nova fase do casal ou do novo lar.'},
+  'personalizados':{curto:'Eventos Especiais', desc:'Homenagens, encontros e datas especiais com uma decoração criada do zero para a ideia de cada cliente.'}
+};
+const ORDEM = ['casamentos','chas-de-panela','personalizados'];
+let lista = [], idx = 0;
+
+/* temas prontos */
+const filtrosT = ['Todos', ...new Set(TEMAS.map(t=>t.cat))];
+const abasT = document.getElementById('abasTemas');
+filtrosT.forEach(f=>{
+  const b=document.createElement('button'); b.className='aba'; b.dataset.f=f;
+  const n = f==='Todos'?TEMAS.length:TEMAS.filter(t=>t.cat===f).length;
+  b.innerHTML=`${f}<small>${n}</small>`; b.onclick=()=>mostrarTemas(f); abasT.appendChild(b);
+});
+function mostrarTemas(f){
+  document.querySelectorAll('#abasTemas .aba').forEach(b=>b.classList.toggle('ativa',b.dataset.f===f));
+  const g=document.getElementById('temasGrid'); g.innerHTML='';
+  TEMAS.filter(t=>f==='Todos'||t.cat===f).forEach(t=>{
+    const el=document.createElement('article'); el.className='tema';
+    const msg=encodeURIComponent(`Olá, Ornali! Tenho interesse no tema "${t.nome}" (${t.cat}). Pode me passar mais informações?`);
+    el.innerHTML=`<div class="capa"><img src="${t.fotos[0].file}" alt="Tema ${t.nome}" loading="lazy"><span class="tag">${t.cat}</span>${t.fotos.length>1?`<span class="qtd">${t.fotos.length} fotos</span>`:''}</div>
+      <div class="corpo"><h3>${t.nome}</h3><p>${t.desc}</p>
+      <div class="btns"><a class="btn btn-primario" href="https://wa.me/${ZAP}?text=${msg}" target="_blank" rel="noopener">Quero este tema</a>${t.fotos.length>1?'<button class="btn btn-linha ver">Ver fotos</button>':''}</div></div>`;
+    const abrir=()=>abrirLb(t.fotos.map(x=>({file:x.file,cap:t.nome})),0);
+    el.querySelector('.capa').onclick=abrir; const v=el.querySelector('.ver'); if(v) v.onclick=abrir;
+    g.appendChild(el);
+  });
+}
+
+/* portfólio */
+const abas=document.getElementById('abas');
+ORDEM.forEach(c=>{
+  const b=document.createElement('button'); b.className='aba'; b.dataset.c=c;
+  b.innerHTML=`${INFO[c].curto}<small>${CATS[c].length}</small>`; b.onclick=()=>mostrar(c); abas.appendChild(b);
+});
+function mostrar(c){
+  document.querySelectorAll('#abas .aba').forEach(b=>b.classList.toggle('ativa',b.dataset.c===c));
+  document.getElementById('catDesc').textContent=INFO[c].desc;
+  const g=document.getElementById('galeria'); g.innerHTML='';
+  CATS[c].forEach((f,i)=>{
+    const fig=document.createElement('figure'); fig.className='foto';
+    fig.innerHTML=`<img src="${f.file}" alt="${f.cap}" loading="lazy"><figcaption>${f.cap}</figcaption>`;
+    fig.onclick=()=>abrirLb(CATS[c],i); g.appendChild(fig);
+  });
+}
+function abrirLb(l,i){lista=l;idx=i;atualizarLb();document.getElementById('lb').classList.add('aberto')}
+function fecharLb(){document.getElementById('lb').classList.remove('aberto')}
+function mover(d){const n=lista.length;idx=(idx+d+n)%n;atualizarLb()}
+function atualizarLb(){const f=lista[idx];document.getElementById('lbImg').src=f.file;document.getElementById('lbLeg').textContent=`${f.cap} · ${idx+1} de ${lista.length}`;document.querySelectorAll('.lb .ant,.lb .prox').forEach(b=>b.style.display=lista.length>1?'':'none')}
+document.addEventListener('keydown',e=>{if(!document.getElementById('lb').classList.contains('aberto'))return;if(e.key==='Escape')fecharLb();if(e.key==='ArrowRight')mover(1);if(e.key==='ArrowLeft')mover(-1)});
+document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>document.getElementById('nav').classList.remove('aberto'));
+function enviar(e){
+  e.preventDefault(); const d=new FormData(e.target);
+  let data=d.get('data'); if(data){const [y,m,dd]=data.split('-'); data=`${dd}/${m}/${y}`}
+  const t=`Olá, Ornali! Meu nome é ${d.get('nome')}.\nTipo de evento: ${d.get('tipo')}`+(data?`\nData: ${data}`:'')+(d.get('msg')?`\n\n${d.get('msg')}`:'');
+  window.open('https://wa.me/'+ZAP+'?text='+encodeURIComponent(t),'_blank'); return false;
+}
+document.getElementById('ano').textContent=new Date().getFullYear();
+mostrarTemas('Todos');
+mostrar(ORDEM[0]);
+/* serviços */
+const SERV=[
+ {nome:'Chás de Bebê & Revelação',desc:'Cenários lúdicos e acolhedores para receber quem está chegando — ou descobrir quem vem aí.',img:'assets/img/chas-de-bebe/chas-de-bebe-02.jpg',ir:()=>{mostrarTemas('Chá de bebê');document.getElementById('temas').scrollIntoView()},txt:'VER TEMAS →'},
+ {nome:'Noivados & Casamentos',desc:'Celebrações intimistas com flores, iluminação suave e detalhes que contam a história do casal.',img:'assets/img/casamentos/casamentos-01.jpg',ir:()=>{mostrar('casamentos');document.getElementById('portfolio').scrollIntoView()},txt:'VER FOTOS →'},
+ {nome:'Aniversários',desc:'Temas infantis, delicados ou marcantes, com cenografia pensada para cada idade e personalidade.',img:'assets/img/aniversarios/aniversarios-01.jpg',ir:()=>{mostrarTemas('Aniversário');document.getElementById('temas').scrollIntoView()},txt:'VER TEMAS →'},
+ {nome:'Chás de Panela & Casa Nova',desc:'Composições cheias de afeto e bom humor para celebrar a nova fase do casal ou do novo lar.',img:'assets/img/chas-de-panela/chas-de-panela-01.jpg',ir:()=>{mostrar('chas-de-panela');document.getElementById('portfolio').scrollIntoView()},txt:'VER FOTOS →'},
+ {nome:'Eventos Personalizados',desc:'Homenagens, encontros e datas especiais com uma decoração criada do zero para a sua ideia.',img:'assets/img/personalizados/personalizados-01.jpg',ir:()=>{mostrar('personalizados');document.getElementById('portfolio').scrollIntoView()},txt:'VER FOTOS →'}
+];
+const cardsEl=document.getElementById('cards');
+SERV.forEach(s=>{const a=document.createElement('a');a.className='card';a.href='javascript:void(0)';
+ a.innerHTML=`<img src="${s.img}" alt="${s.nome}" loading="lazy"><div><h3>${s.nome}</h3><p>${s.desc}</p><span>${s.txt}</span></div>`;
+ a.onclick=e=>{e.preventDefault();s.ir()};cardsEl.appendChild(a)});
+
+</script>
 </body>
 </html>

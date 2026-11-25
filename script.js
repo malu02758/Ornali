@@ -104,11 +104,17 @@
    ========================================================================== */
 
 var projetos = [
-  { titulo: "Chá de Bebe", foto: "assets/projetos/levi-1.jpeg" },
-  { titulo: "Chá de Bebe", foto: "assets/projetos/theo-1.jpg" },
-  { titulo: "Casamento intimista- M&A", foto: "assets/projetos/casamento-1.jpg" },
-  { titulo: "Eventos especiais — ", foto: "assets/projetos/pio-1.jpg" },
-  { titulo: "Chá de Panela", foto: "assets/projetos/panela-1.jpeg" }
+  { titulo: "Chá de Bebê", foto: "assets/projetos/levi-1.jpeg" },
+  { titulo: "Chá de Bebê", foto: "assets/projetos/theo-1.jpg" },
+  { titulo: "Casamento intimista - M&A", foto: "assets/projetos/casamento-1.jpg" },
+  { titulo: "Eventos especiais - ", foto: "assets/projetos/pio-1.jpg" },
+  { titulo: "Chá de Panela", foto: "assets/projetos/panela-1.jpeg" },
+
+  { titulo: "Jardim Florido — Despedida", foto: "jardim-florido-despedida-01.jpg" },
+  { titulo: "Jardim Florido — Despedida", foto: "jardim-florido-despedida-02.jpg" },
+  { titulo: "Jardim Florido — Despedida", foto: "jardim-florido-despedida-03.jpg" },
+  { titulo: "Jardim Florido — Despedida", foto: "jardim-florido-despedida-04.jpg" },
+  { titulo: "Jardim Florido — Despedida", foto: "jardim-florido-despedida-05.jpg" }
 ];
 
 (function () {
